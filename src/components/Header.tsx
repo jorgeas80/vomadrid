@@ -12,13 +12,13 @@ export function Header() {
             href="/"
             className="text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]"
           >
-            Películas
+            Movies
           </Link>
           <Link
             href="/cinemas"
             className="text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]"
           >
-            Cines
+            Cinemas
           </Link>
         </nav>
       </div>

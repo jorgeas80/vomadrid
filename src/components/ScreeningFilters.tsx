@@ -34,7 +34,7 @@ export function ScreeningFilters({
         onChange={(e) => onCinemaChange(e.target.value)}
         className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
       >
-        <option value="">Todos los cines</option>
+        <option value="">All cinemas</option>
         {cinemas.map((c) => (
           <option key={c.id} value={c.id}>
             {c.name}
@@ -46,7 +46,7 @@ export function ScreeningFilters({
         onChange={(e) => onChainChange(e.target.value)}
         className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
       >
-        <option value="">Todas las cadenas</option>
+        <option value="">All chains</option>
         {chains.map((ch) => (
           <option key={ch} value={ch}>
             {ch}

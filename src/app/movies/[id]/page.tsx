@@ -95,13 +95,13 @@ export default function MovieDetailPage({
     return (
       <div className="py-20 text-center">
         <p className="text-[var(--color-muted)]">
-          {error || "Película no encontrada."}
+          {error || "Movie not found."}
         </p>
         <Link
           href="/"
           className="mt-4 inline-block text-sm text-[var(--color-primary)] hover:underline"
         >
-          Volver a la cartelera
+          Back to movies
         </Link>
       </div>
     );
@@ -118,7 +118,7 @@ export default function MovieDetailPage({
         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
-        Volver
+        Back
       </Link>
 
       {/* Movie header */}
@@ -133,7 +133,7 @@ export default function MovieDetailPage({
             />
           ) : (
             <div className="flex aspect-[2/3] w-full items-center justify-center rounded-lg bg-[var(--color-badge)] text-[var(--color-muted)]">
-              Sin póster
+              No poster
             </div>
           )}
         </div>
@@ -190,11 +190,11 @@ export default function MovieDetailPage({
       {/* Trailer */}
       {embedUrl && (
         <div className="mt-8">
-          <h2 className="mb-3 text-xl font-semibold">Tráiler</h2>
+          <h2 className="mb-3 text-xl font-semibold">Trailer</h2>
           <div className="relative aspect-video w-full overflow-hidden rounded-lg">
             <iframe
               src={embedUrl}
-              title="Tráiler"
+              title="Trailer"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className="absolute inset-0 h-full w-full"
@@ -205,7 +205,7 @@ export default function MovieDetailPage({
 
       {/* Screenings */}
       <div className="mt-8">
-        <h2 className="mb-3 text-xl font-semibold">Sesiones</h2>
+        <h2 className="mb-3 text-xl font-semibold">Screenings</h2>
         <ScreeningFilters
           date={date}
           cinemaId={cinemaId}

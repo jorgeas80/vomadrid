@@ -41,7 +41,7 @@ export function MovieFilters({
       <div className="flex-1">
         <input
           type="text"
-          placeholder="Buscar película..."
+          placeholder="Search movies..."
           value={search}
           onChange={handleSearch}
           className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-2 text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)]"
@@ -53,7 +53,7 @@ export function MovieFilters({
           onChange={(e) => onGenreChange(e.target.value)}
           className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
         >
-          <option value="">Todos los géneros</option>
+          <option value="">All genres</option>
           {genres.map((g) => (
             <option key={g} value={g}>
               {g}
@@ -65,7 +65,7 @@ export function MovieFilters({
           onChange={(e) => onLanguageChange(e.target.value)}
           className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
         >
-          <option value="">Todos los idiomas</option>
+          <option value="">All languages</option>
           {languages.map((l) => (
             <option key={l} value={l}>
               {l}
@@ -77,7 +77,7 @@ export function MovieFilters({
           onChange={(e) => onAgeRatingChange(e.target.value)}
           className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
         >
-          <option value="">Edad</option>
+          <option value="">Age rating</option>
           {ageRatings.map((a) => (
             <option key={a} value={a}>
               {a}

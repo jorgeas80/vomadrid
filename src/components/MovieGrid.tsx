@@ -6,8 +6,8 @@ export function MovieGrid({ movies }: { movies: Movie[] }) {
   if (movies.length === 0) {
     return (
       <EmptyState
-        title="No se encontraron películas"
-        description="Prueba a cambiar los filtros o vuelve más tarde."
+        title="No movies found"
+        description="Try changing the filters or come back later."
       />
     );
   }

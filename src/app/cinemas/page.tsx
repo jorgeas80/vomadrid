@@ -32,18 +32,18 @@ export default function CinemasPage() {
   if (error) {
     return (
       <div className="py-20 text-center">
-        <p className="text-[var(--color-muted)]">Error al cargar los cines.</p>
+        <p className="text-[var(--color-muted)]">Failed to load cinemas.</p>
       </div>
     );
   }
 
   return (
     <>
-      <h1 className="mb-6 text-2xl font-bold">Cines</h1>
+      <h1 className="mb-6 text-2xl font-bold">Cinemas</h1>
       {cinemas.length === 0 ? (
         <EmptyState
-          title="No se encontraron cines"
-          description="Vuelve más tarde."
+          title="No cinemas found"
+          description="Come back later."
         />
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

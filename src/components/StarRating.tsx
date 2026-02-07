@@ -2,7 +2,11 @@ export function StarRating({ rating }: { rating: number }) {
   const stars = Math.round(Math.min(5, Math.max(0, rating)));
 
   return (
-    <span className="inline-flex gap-0.5" aria-label={`${rating} de 5 estrellas`}>
+    <span
+      className="inline-flex cursor-help gap-0.5"
+      aria-label={`${rating} out of 5 stars`}
+      title="Average rating across IMDb, Filmaffinity and Rotten Tomatoes"
+    >
       {Array.from({ length: 5 }, (_, i) => (
         <svg
           key={i}

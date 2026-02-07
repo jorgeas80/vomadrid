@@ -5,8 +5,8 @@ export function ScreeningsList({ screenings }: { screenings: Screening[] }) {
   if (screenings.length === 0) {
     return (
       <EmptyState
-        title="No hay sesiones disponibles"
-        description="Prueba a cambiar los filtros o vuelve más tarde."
+        title="No screenings available"
+        description="Try changing the filters or come back later."
       />
     );
   }
@@ -16,22 +16,22 @@ export function ScreeningsList({ screenings }: { screenings: Screening[] }) {
       <table className="w-full text-left text-sm">
         <thead className="border-b border-[var(--color-border)] bg-[var(--color-badge)]">
           <tr>
-            <th className="px-4 py-3 font-medium">Fecha y hora</th>
-            <th className="px-4 py-3 font-medium">Cine</th>
-            <th className="hidden px-4 py-3 font-medium sm:table-cell">Cadena</th>
-            <th className="hidden px-4 py-3 font-medium md:table-cell">Ciudad</th>
+            <th className="px-4 py-3 font-medium">Date & time</th>
+            <th className="px-4 py-3 font-medium">Cinema</th>
+            <th className="hidden px-4 py-3 font-medium sm:table-cell">Chain</th>
+            <th className="hidden px-4 py-3 font-medium md:table-cell">City</th>
             <th className="px-4 py-3 font-medium"></th>
           </tr>
         </thead>
         <tbody className="divide-y divide-[var(--color-border)]">
           {screenings.map((screening) => {
             const dateObj = new Date(screening.date);
-            const dateStr = dateObj.toLocaleDateString("es-ES", {
+            const dateStr = dateObj.toLocaleDateString("en-GB", {
               weekday: "short",
               day: "numeric",
               month: "short",
             });
-            const timeStr = dateObj.toLocaleTimeString("es-ES", {
+            const timeStr = dateObj.toLocaleTimeString("en-GB", {
               hour: "2-digit",
               minute: "2-digit",
             });
@@ -64,7 +64,7 @@ export function ScreeningsList({ screenings }: { screenings: Screening[] }) {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 rounded-lg bg-[var(--color-primary)] px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-[var(--color-primary-hover)]"
                     >
-                      Comprar
+                      Buy tickets
                       <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           strokeLinecap="round"

@@ -48,13 +48,13 @@ export default function CinemaDetailPage({
     return (
       <div className="py-20 text-center">
         <p className="text-[var(--color-muted)]">
-          {error || "Cine no encontrado."}
+          {error || "Cinema not found."}
         </p>
         <Link
           href="/cinemas"
           className="mt-4 inline-block text-sm text-[var(--color-primary)] hover:underline"
         >
-          Volver a cines
+          Back to cinemas
         </Link>
       </div>
     );
@@ -69,7 +69,7 @@ export default function CinemaDetailPage({
         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
-        Volver
+        Back
       </Link>
 
       <div className="mb-8">
@@ -95,7 +95,7 @@ export default function CinemaDetailPage({
               rel="noopener noreferrer"
               className="text-sm text-[var(--color-primary)] hover:underline"
             >
-              Sitio web
+              Website
             </a>
           )}
           {cinema.googleMapsUrl && (
@@ -111,7 +111,7 @@ export default function CinemaDetailPage({
         </div>
       </div>
 
-      <h2 className="mb-3 text-xl font-semibold">Próximas sesiones</h2>
+      <h2 className="mb-3 text-xl font-semibold">Upcoming screenings</h2>
       <ScreeningsList screenings={screenings} />
     </div>
   );

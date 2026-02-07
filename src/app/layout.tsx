@@ -3,9 +3,9 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "VO Madrid — Cine en versión original",
+  title: "VO Madrid — Original version cinema in Madrid",
   description:
-    "Encuentra películas en versión original y compra entradas en cines de Madrid.",
+    "Find movies in original version and buy tickets at cinemas in Madrid.",
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body className="min-h-screen antialiased">
         <Header />
         <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">

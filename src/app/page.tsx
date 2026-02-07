@@ -78,14 +78,14 @@ export default function HomePage() {
   if (error) {
     return (
       <div className="py-20 text-center">
-        <p className="text-[var(--color-muted)]">Error al cargar películas.</p>
+        <p className="text-[var(--color-muted)]">Failed to load movies.</p>
       </div>
     );
   }
 
   return (
     <>
-      <h1 className="mb-6 text-2xl font-bold">Cartelera</h1>
+      <h1 className="mb-6 text-2xl font-bold">Now showing</h1>
       <MovieFilters
         search={search}
         genre={genre}
