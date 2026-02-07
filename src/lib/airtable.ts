@@ -214,7 +214,7 @@ export async function getMovies(): Promise<Movie[]> {
     MOVIES_TABLE,
     {
       filterByFormula: `{${MOVIE_FIELDS.isActive}} = TRUE()`,
-      "sort[0][field]": MOVIE_FIELDS.sortOrder,
+      "sort[0][field]": MOVIE_FIELDS.title,
       "sort[0][direction]": "asc",
     },
     "movies:active"
