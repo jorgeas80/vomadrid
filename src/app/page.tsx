@@ -85,7 +85,12 @@ export default function HomePage() {
 
   return (
     <>
-      <h1 className="mb-6 text-2xl font-bold">Now showing</h1>
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold">Now showing</h1>
+        <p className="mt-1 text-sm text-[var(--color-muted)]">
+          Find movies in original version (VO) playing in cinemas across Madrid and buy tickets online.
+        </p>
+      </div>
       <MovieFilters
         search={search}
         genre={genre}
