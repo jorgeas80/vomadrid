@@ -48,7 +48,7 @@ export function ScreeningsList({ screenings }: { screenings: Screening[] }) {
                 <td className="px-4 py-3">{screening.cinema?.name ?? "—"}</td>
                 <td className="hidden px-4 py-3 sm:table-cell">
                   {screening.cinema?.chain && (
-                    <span className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs font-medium">
+                    <span className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs font-medium text-[var(--color-badge-text)]">
                       {screening.cinema.chain}
                     </span>
                   )}
@@ -62,7 +62,7 @@ export function ScreeningsList({ screenings }: { screenings: Screening[] }) {
                       href={screening.bookingUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 rounded-lg bg-[var(--color-primary)] px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-[var(--color-primary-hover)]"
+                      className="inline-flex items-center gap-1 rounded-lg bg-[var(--color-accent)] px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-[var(--color-accent-hover)]"
                     >
                       Buy tickets
                       <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">

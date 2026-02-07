@@ -11,7 +11,7 @@ export function CinemaCard({ cinema }: { cinema: Cinema }) {
         <h3 className="font-semibold">{cinema.name}</h3>
         <div className="mt-1 flex items-center gap-2 text-sm text-[var(--color-muted)]">
           {cinema.chain && (
-            <span className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs font-medium">
+            <span className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs font-medium text-[var(--color-badge-text)]">
               {cinema.chain}
             </span>
           )}

@@ -40,7 +40,7 @@ export function MovieCard({ movie }: { movie: Movie }) {
           {movie.genres.slice(0, 3).map((genre) => (
             <span
               key={genre}
-              className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs text-[var(--color-muted)]"
+              className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs text-[var(--color-badge-text)]"
             >
               {genre}
             </span>

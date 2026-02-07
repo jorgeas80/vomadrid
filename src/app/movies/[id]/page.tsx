@@ -155,12 +155,12 @@ export default function MovieDetailPage({
               </span>
             )}
             {movie.originalLanguage && (
-              <span className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs font-medium">
+              <span className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs font-medium text-[var(--color-badge-text)]">
                 {movie.originalLanguage}
               </span>
             )}
             {movie.ageRating && (
-              <span className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs font-medium">
+              <span className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs font-medium text-[var(--color-badge-text)]">
                 {movie.ageRating}
               </span>
             )}
@@ -171,7 +171,7 @@ export default function MovieDetailPage({
               {movie.genres.map((g) => (
                 <span
                   key={g}
-                  className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs text-[var(--color-muted)]"
+                  className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs text-[var(--color-badge-text)]"
                 >
                   {g}
                 </span>
