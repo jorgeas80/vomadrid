@@ -29,6 +29,9 @@ yarn-error.log*
 .env
 .env*.local
 
+# prompt
+PROMPT.md
+
 # vercel
 .vercel
 

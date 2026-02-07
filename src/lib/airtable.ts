@@ -169,7 +169,7 @@ function mapMovie(record: AirtableRecord<MovieFields>): Movie {
     poster: f[MOVIE_FIELDS.poster] ?? "",
     synopsis: f[MOVIE_FIELDS.synopsis] ?? "",
     trailerUrl: f[MOVIE_FIELDS.trailerUrl] ?? "",
-    rating: f[MOVIE_FIELDS.rating] ?? 0,
+    rating: Math.round(((f[MOVIE_FIELDS.rating] ?? 0) / 10) * 5),
     genres: f[MOVIE_FIELDS.genres] ?? [],
     runtime: formatRuntime(f[MOVIE_FIELDS.runtime]),
     ageRating: f[MOVIE_FIELDS.ageRating]?.[0] ?? "",
