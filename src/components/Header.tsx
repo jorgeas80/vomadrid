@@ -21,6 +21,12 @@ export function Header() {
           >
             Cinemas
           </Link>
+          <a
+            href="mailto:hola@vomadrid.es?subject=VO Madrid Feedback"
+            className="text-[var(--color-header-muted)] transition-colors hover:text-[var(--color-header-text)]"
+          >
+            Feedback
+          </a>
         </nav>
       </div>
     </header>
