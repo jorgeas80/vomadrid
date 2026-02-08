@@ -11,6 +11,8 @@ export default function CinemasPage() {
   const [error, setError] = useState("");
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [city, setCity] = useState("");
+  const [chain, setChain] = useState("");
 
   useEffect(() => {
     fetch("/api/cinemas")
@@ -28,16 +30,31 @@ export default function CinemasPage() {
     return () => clearTimeout(timer);
   }, [search]);
 
+  const cities = useMemo(
+    () => [...new Set(cinemas.map((c) => c.city).filter(Boolean))].sort(),
+    [cinemas]
+  );
+  const chains = useMemo(
+    () => [...new Set(cinemas.map((c) => c.chain).filter(Boolean))].sort(),
+    [cinemas]
+  );
+
   const filtered = useMemo(() => {
-    if (!debouncedSearch) return cinemas;
-    const q = debouncedSearch.toLowerCase();
-    return cinemas.filter(
-      (c) =>
-        c.name.toLowerCase().includes(q) ||
-        c.chain.toLowerCase().includes(q) ||
-        c.city.toLowerCase().includes(q)
-    );
-  }, [cinemas, debouncedSearch]);
+    return cinemas.filter((c) => {
+      if (debouncedSearch) {
+        const q = debouncedSearch.toLowerCase();
+        if (
+          !c.name.toLowerCase().includes(q) &&
+          !c.chain.toLowerCase().includes(q) &&
+          !c.city.toLowerCase().includes(q)
+        )
+          return false;
+      }
+      if (city && c.city !== city) return false;
+      if (chain && c.chain !== chain) return false;
+      return true;
+    });
+  }, [cinemas, debouncedSearch, city, chain]);
 
   if (loading) {
     return (
@@ -58,14 +75,38 @@ export default function CinemasPage() {
   return (
     <>
       <h1 className="mb-6 text-2xl font-bold">Cinemas</h1>
-      <div className="mb-6">
-        <input
-          type="text"
-          placeholder="Search cinemas..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="w-full max-w-md rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-2 text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)]"
-        />
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="flex-1">
+          <input
+            type="text"
+            placeholder="Search cinemas..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-2 text-sm outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)]"
+          />
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <select
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
+          >
+            <option value="">All cities</option>
+            {cities.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+          <select
+            value={chain}
+            onChange={(e) => setChain(e.target.value)}
+            className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
+          >
+            <option value="">All chains</option>
+            {chains.map((ch) => (
+              <option key={ch} value={ch}>{ch}</option>
+            ))}
+          </select>
+        </div>
       </div>
       {filtered.length === 0 ? (
         <EmptyState
