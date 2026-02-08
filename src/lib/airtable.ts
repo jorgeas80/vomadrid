@@ -35,6 +35,7 @@ const MOVIE_FIELDS = {
   originalLanguage: "Original language",
   isActive: "Is active",
   sortOrder: "Sort order",
+  imdbLink: "imdb_link",
 } as const;
 
 const CINEMA_FIELDS = {
@@ -174,6 +175,7 @@ function mapMovie(record: AirtableRecord<MovieFields>): Movie {
     runtime: formatRuntime(f[MOVIE_FIELDS.runtime]),
     ageRating: f[MOVIE_FIELDS.ageRating]?.[0] ?? "",
     originalLanguage: f[MOVIE_FIELDS.originalLanguage] ?? "",
+    imdbLink: f[MOVIE_FIELDS.imdbLink] ?? "",
     isActive: f[MOVIE_FIELDS.isActive] ?? false,
     sortOrder: f[MOVIE_FIELDS.sortOrder] ?? 999,
   };
