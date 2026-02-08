@@ -16,7 +16,13 @@ function trackTicketPurchase(screening: Screening) {
   });
 }
 
-export function ScreeningsList({ screenings }: { screenings: Screening[] }) {
+export function ScreeningsList({
+  screenings,
+  context = "movie",
+}: {
+  screenings: Screening[];
+  context?: "movie" | "cinema";
+}) {
   if (screenings.length === 0) {
     return (
       <EmptyState
@@ -32,9 +38,15 @@ export function ScreeningsList({ screenings }: { screenings: Screening[] }) {
         <thead className="border-b border-[var(--color-border)] bg-[var(--color-badge)]">
           <tr>
             <th className="px-4 py-3 font-medium">Date & time</th>
-            <th className="px-4 py-3 font-medium">Cinema</th>
-            <th className="hidden px-4 py-3 font-medium sm:table-cell">Chain</th>
-            <th className="hidden px-4 py-3 font-medium md:table-cell">City</th>
+            {context === "movie" ? (
+              <>
+                <th className="px-4 py-3 font-medium">Cinema</th>
+                <th className="hidden px-4 py-3 font-medium sm:table-cell">Chain</th>
+                <th className="hidden px-4 py-3 font-medium md:table-cell">City</th>
+              </>
+            ) : (
+              <th className="px-4 py-3 font-medium">Movie</th>
+            )}
             <th className="px-4 py-3 font-medium"></th>
           </tr>
         </thead>
@@ -60,17 +72,23 @@ export function ScreeningsList({ screenings }: { screenings: Screening[] }) {
                   <div className="font-medium">{dateStr}</div>
                   <div className="text-[var(--color-muted)]">{timeStr}</div>
                 </td>
-                <td className="px-4 py-3">{screening.cinema?.name ?? "—"}</td>
-                <td className="hidden px-4 py-3 sm:table-cell">
-                  {screening.cinema?.chain && (
-                    <span className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs font-medium text-[var(--color-badge-text)]">
-                      {screening.cinema.chain}
-                    </span>
-                  )}
-                </td>
-                <td className="hidden px-4 py-3 md:table-cell">
-                  {screening.cinema?.city ?? "—"}
-                </td>
+                {context === "movie" ? (
+                  <>
+                    <td className="px-4 py-3">{screening.cinema?.name ?? "—"}</td>
+                    <td className="hidden px-4 py-3 sm:table-cell">
+                      {screening.cinema?.chain && (
+                        <span className="rounded-full bg-[var(--color-badge)] px-2 py-0.5 text-xs font-medium text-[var(--color-badge-text)]">
+                          {screening.cinema.chain}
+                        </span>
+                      )}
+                    </td>
+                    <td className="hidden px-4 py-3 md:table-cell">
+                      {screening.cinema?.city ?? "—"}
+                    </td>
+                  </>
+                ) : (
+                  <td className="px-4 py-3">{screening.movie?.title ?? "—"}</td>
+                )}
                 <td className="px-4 py-3 text-right">
                   {screening.bookingUrl ? (
                     <a

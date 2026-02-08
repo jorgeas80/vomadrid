@@ -112,7 +112,7 @@ export default function CinemaDetailPage({
       </div>
 
       <h2 className="mb-3 text-xl font-semibold">Upcoming screenings</h2>
-      <ScreeningsList screenings={screenings} />
+      <ScreeningsList screenings={screenings} context="cinema" />
     </div>
   );
 }
