@@ -306,6 +306,10 @@ export async function getScreenings(filters?: {
   if (USE_STATIC_DATA) {
     // Load from static JSON (already has movie and cinema resolved)
     screenings = loadStaticData<Screening[]>("screenings.json");
+    // Filter out past screenings (same logic as Airtable's IS_AFTER filter)
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    screenings = screenings.filter((s) => new Date(s.date) >= today);
   } else {
     // Fetch from Airtable API
     const formulas: string[] = [
