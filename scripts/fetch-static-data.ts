@@ -70,7 +70,6 @@ async function fetchData() {
     console.log(`✅ Fetched ${screeningsRaw.length} screenings`);
 
     // Now map and filter data using the same logic
-    const { default: types } = await import("../src/lib/types.js");
 
     // Map movies
     const movies = moviesRaw
