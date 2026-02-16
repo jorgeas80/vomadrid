@@ -1,0 +1,161 @@
+[
+  {
+    "id": "recqSVwwc9GLL1QSN",
+    "screeningId": 228,
+    "movieId": "recTvH3SeHT2IADYT",
+    "cinemaId": "recHbIb8o4Tem6LSy",
+    "date": "2026-02-16T20:20:00.000Z",
+    "bookingUrl": "https://web.cinesa.es/compra/butacas/?showtimeId=124-95506",
+    "notes": "",
+    "isActive": true,
+    "movie": {
+      "id": "recTvH3SeHT2IADYT",
+      "title": "Nuremberg ",
+      "originalTitle": "Nuremberg",
+      "poster": "https://pics.filmaffinity.com/nuremberg-979422889-mmed.jpg",
+      "synopsis": "A historical drama about the Nuremberg Trials following World War II, focusing on the legal proceedings that brought Nazi war criminals to justice. The film explores themes of justice, accountability, and the challenge of prosecuting crimes against humanity.",
+      "trailerUrl": "https://youtu.be/WvAy9C-bipY?si=c-NZyKXCKS5vNGql",
+      "rating": 4,
+      "genres": [
+        "War",
+        "Drama",
+        "Historical"
+      ],
+      "runtime": "2h 28min",
+      "ageRating": "16+",
+      "originalLanguage": "English",
+      "imdbLink": "https://www.imdb.com/title/tt29567915/?ref_=ext_shr_lnk",
+      "isActive": true,
+      "sortOrder": 999
+    },
+    "cinema": {
+      "id": "recHbIb8o4Tem6LSy",
+      "name": "Cinesa Manoteras",
+      "chain": "Cinesa",
+      "address": "Av. de Manoteras, 40, Hortaleza, 28050 Madrid",
+      "city": "Madrid",
+      "url": "https://www.cinesa.es/cines/manoteras/",
+      "googleMapsUrl": "https://maps.app.goo.gl/DJPEHbfQD13sEeto7",
+      "isActive": true
+    }
+  },
+  {
+    "id": "rec9ynR7QUVnv10ea",
+    "screeningId": 3,
+    "movieId": "recVw3EJwbKHVBMPm",
+    "cinemaId": "recJNZktPzcN5yhlf",
+    "date": "2026-02-17T18:15:00.000Z",
+    "bookingUrl": "https://kinetike.com:83/views/sesionesFuturas.aspx?idPelicula=2880&cine=EQUIS",
+    "notes": "",
+    "isActive": true,
+    "movie": {
+      "id": "recVw3EJwbKHVBMPm",
+      "title": "It Was Just an Accident",
+      "originalTitle": "It Was Just an Accident",
+      "poster": "https://pics.filmaffinity.com/un_simple_accident-794909124-large.jpg",
+      "synopsis": "An Iranian drama about a tragic accident that changes the lives of everyone involved. The film explores themes of guilt, responsibility, and forgiveness as the characters grapple with the consequences of a single moment that altered their destinies forever.",
+      "trailerUrl": "https://youtu.be/9oHw2ubyWE4?si=n9BAY7FNug0galuS",
+      "rating": 4,
+      "genres": [
+        "Thriller",
+        "Drama"
+      ],
+      "runtime": "1h 43min",
+      "ageRating": "16+",
+      "originalLanguage": "Persian",
+      "imdbLink": "https://www.imdb.com/title/tt36491653/?ref_=ext_shr_lnk",
+      "isActive": true,
+      "sortOrder": 999
+    },
+    "cinema": {
+      "id": "recJNZktPzcN5yhlf",
+      "name": "Sala Equis",
+      "chain": "Independent",
+      "address": "C. del Duque de Alba, 4, Centro, 28012 Madrid",
+      "city": "Madrid",
+      "url": "https://salaequis.es/taquilla/",
+      "googleMapsUrl": "https://maps.app.goo.gl/xxoMvwwiSkDfgzaQ9",
+      "isActive": true
+    }
+  },
+  {
+    "id": "rec0cRGNEmRFyxKFY",
+    "screeningId": 229,
+    "movieId": "recTvH3SeHT2IADYT",
+    "cinemaId": "recHbIb8o4Tem6LSy",
+    "date": "2026-02-17T20:20:00.000Z",
+    "bookingUrl": "https://web.cinesa.es/compra/butacas/?showtimeId=124-95719",
+    "notes": "",
+    "isActive": true,
+    "movie": {
+      "id": "recTvH3SeHT2IADYT",
+      "title": "Nuremberg ",
+      "originalTitle": "Nuremberg",
+      "poster": "https://pics.filmaffinity.com/nuremberg-979422889-mmed.jpg",
+      "synopsis": "A historical drama about the Nuremberg Trials following World War II, focusing on the legal proceedings that brought Nazi war criminals to justice. The film explores themes of justice, accountability, and the challenge of prosecuting crimes against humanity.",
+      "trailerUrl": "https://youtu.be/WvAy9C-bipY?si=c-NZyKXCKS5vNGql",
+      "rating": 4,
+      "genres": [
+        "War",
+        "Drama",
+        "Historical"
+      ],
+      "runtime": "2h 28min",
+      "ageRating": "16+",
+      "originalLanguage": "English",
+      "imdbLink": "https://www.imdb.com/title/tt29567915/?ref_=ext_shr_lnk",
+      "isActive": true,
+      "sortOrder": 999
+    },
+    "cinema": {
+      "id": "recHbIb8o4Tem6LSy",
+      "name": "Cinesa Manoteras",
+      "chain": "Cinesa",
+      "address": "Av. de Manoteras, 40, Hortaleza, 28050 Madrid",
+      "city": "Madrid",
+      "url": "https://www.cinesa.es/cines/manoteras/",
+      "googleMapsUrl": "https://maps.app.goo.gl/DJPEHbfQD13sEeto7",
+      "isActive": true
+    }
+  },
+  {
+    "id": "rec2O5tDqJhMv7HPq",
+    "screeningId": 230,
+    "movieId": "recTvH3SeHT2IADYT",
+    "cinemaId": "recHbIb8o4Tem6LSy",
+    "date": "2026-02-19T20:30:00.000Z",
+    "bookingUrl": "https://web.cinesa.es/compra/butacas/?showtimeId=124-95618",
+    "notes": "",
+    "isActive": true,
+    "movie": {
+      "id": "recTvH3SeHT2IADYT",
+      "title": "Nuremberg ",
+      "originalTitle": "Nuremberg",
+      "poster": "https://pics.filmaffinity.com/nuremberg-979422889-mmed.jpg",
+      "synopsis": "A historical drama about the Nuremberg Trials following World War II, focusing on the legal proceedings that brought Nazi war criminals to justice. The film explores themes of justice, accountability, and the challenge of prosecuting crimes against humanity.",
+      "trailerUrl": "https://youtu.be/WvAy9C-bipY?si=c-NZyKXCKS5vNGql",
+      "rating": 4,
+      "genres": [
+        "War",
+        "Drama",
+        "Historical"
+      ],
+      "runtime": "2h 28min",
+      "ageRating": "16+",
+      "originalLanguage": "English",
+      "imdbLink": "https://www.imdb.com/title/tt29567915/?ref_=ext_shr_lnk",
+      "isActive": true,
+      "sortOrder": 999
+    },
+    "cinema": {
+      "id": "recHbIb8o4Tem6LSy",
+      "name": "Cinesa Manoteras",
+      "chain": "Cinesa",
+      "address": "Av. de Manoteras, 40, Hortaleza, 28050 Madrid",
+      "city": "Madrid",
+      "url": "https://www.cinesa.es/cines/manoteras/",
+      "googleMapsUrl": "https://maps.app.goo.gl/DJPEHbfQD13sEeto7",
+      "isActive": true
+    }
+  }
+]

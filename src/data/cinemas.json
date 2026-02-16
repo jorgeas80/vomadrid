@@ -1,0 +1,642 @@
+[
+  {
+    "id": "recXk5Oc3J8N6lqVz",
+    "name": "Artistic Metropol",
+    "chain": "Independent",
+    "address": "Calle de Cigarreras, 6, 28005 Madrid",
+    "city": "Madrid",
+    "url": "https://artisticmetropol.es/",
+    "googleMapsUrl": "https://maps.google.com/?q=Artistic+Metropol",
+    "isActive": true
+  },
+  {
+    "id": "recZZhPqYm9RmU1mK",
+    "name": "Cine Capitol",
+    "chain": "Independent",
+    "address": "Gran Vía, 41, Centro, 28013 Madrid",
+    "city": "Madrid",
+    "url": "https://www.capitolgranvia.com/es/cine/",
+    "googleMapsUrl": "https://maps.app.goo.gl/eVjfV8HLaPYRTxPB6",
+    "isActive": true
+  },
+  {
+    "id": "rec178ouLF6Opk2mV",
+    "name": "Cine Doré (Filmoteca Española)",
+    "chain": "Public (state)",
+    "address": "C. de Sta. Isabel, 3, Centro, 28012 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cultura.gob.es/cultura/areas/cine/mc/fe/difusion/programa.html",
+    "googleMapsUrl": "https://maps.google.com/?q=Cine+Dore+Madrid",
+    "isActive": true
+  },
+  {
+    "id": "reciJkg9dAb1O7pFn",
+    "name": "Cine Estudio del Círculo de Bellas Artes",
+    "chain": "Independent",
+    "address": "C. del Marqués de Casa Riera, 4, Centro, 28014 Madrid",
+    "city": "Madrid",
+    "url": "https://www.reservaentradas.com/cine/madrid/circulobellasartes/",
+    "googleMapsUrl": "https://maps.app.goo.gl/YmtExAnb2RK43w6Y8",
+    "isActive": true
+  },
+  {
+    "id": "recm526Eg7TltQKNT",
+    "name": "Cine Iberia",
+    "chain": "Independent",
+    "address": "Pl. Cibeles, s/n, Salamanca, 28014 Madrid",
+    "city": "Madrid",
+    "url": "https://www.casamerica.es/cine",
+    "googleMapsUrl": "https://maps.app.goo.gl/V4D1w7NHikU6e2aS8",
+    "isActive": true
+  },
+  {
+    "id": "recfpNupq8vOI01l6",
+    "name": "Cines Callao",
+    "chain": "Independent",
+    "address": "Pl. del Callao, 3, Centro, 28013 Madrid",
+    "city": "Madrid",
+    "url": "https://cinescallao.es/cartelera-de-cine/",
+    "googleMapsUrl": "https://maps.app.goo.gl/Yb5ZL6H2xyL93Sb66",
+    "isActive": true
+  },
+  {
+    "id": "reclawH0Y5LYMpYWw",
+    "name": "Cines Embajadores",
+    "chain": "Embajadores",
+    "address": "Glorieta de Santa María de la Cabeza, 5, 28045 Madrid",
+    "city": "Madrid",
+    "url": "https://cinesembajadores.es/madrid/",
+    "googleMapsUrl": "https://maps.app.goo.gl/oQuPWtF8XJiaCEJC6",
+    "isActive": true
+  },
+  {
+    "id": "recUp1663h6y6To1U",
+    "name": "Cines Embajadores Río",
+    "chain": "Embajadores",
+    "address": "Calle de Ercilla, 53, 28045 Madrid",
+    "city": "Madrid",
+    "url": "https://cinesembajadores.es/madrid/",
+    "googleMapsUrl": "https://maps.app.goo.gl/Y99jKzWt37zezaA4A",
+    "isActive": true
+  },
+  {
+    "id": "rec4RUcUxIiCxjNiV",
+    "name": "Cines La Rambla",
+    "chain": "Independent",
+    "address": "Av. de los Príncipes de España, 0, 28821 Coslada, Madrid",
+    "city": "Coslada",
+    "url": "https://cineslarambla.es/",
+    "googleMapsUrl": "https://maps.app.goo.gl/rv2cyrnq7ULK8u2V8",
+    "isActive": true
+  },
+  {
+    "id": "recnbXqfeFPzYpw89",
+    "name": "Cines Palacio de la Prensa",
+    "chain": "Independent",
+    "address": "Pl. del Callao, 4, Centro, 28013 Madrid",
+    "city": "Madrid",
+    "url": "https://palaciodelaprensa.com/es/categoria/106/cine-vose",
+    "googleMapsUrl": "https://maps.app.goo.gl/WHDbrt9SmNRAQQpx7",
+    "isActive": true
+  },
+  {
+    "id": "recKpTFPOpWWx3HwL",
+    "name": "Cines Plaza Coslada",
+    "chain": "Independent",
+    "address": "Av. de José Gárate, 28823 Coslada, Madrid",
+    "city": "Coslada",
+    "url": "https://www.cinesplazacoslada.com/",
+    "googleMapsUrl": "https://maps.app.goo.gl/J2x8EAo41nMsyM4V8",
+    "isActive": true
+  },
+  {
+    "id": "recfxXuowoQisUFst",
+    "name": "Cines Verdi",
+    "chain": "Independent",
+    "address": "C. de Bravo Murillo, 28, Chamberí, 28015 Madrid",
+    "city": "Madrid",
+    "url": "https://madrid.cines-verdi.com/cartelera/",
+    "googleMapsUrl": "https://maps.app.goo.gl/JYSFvxUkHD51fWh4A",
+    "isActive": true
+  },
+  {
+    "id": "rec0u76I97SUKo7FV",
+    "name": "Cines Villa",
+    "chain": "Independent",
+    "address": "Av. de España, 88, 28630 Villa del Prado, Madrid",
+    "city": "Villa del Prado",
+    "url": "https://cinesvilla.es/",
+    "googleMapsUrl": "https://maps.app.goo.gl/1EdRFUaPjxdkbBvZ6",
+    "isActive": true
+  },
+  {
+    "id": "rec8oSB9k5z4l7F7F",
+    "name": "Cines Zoco Majadahonda",
+    "chain": "Independent",
+    "address": "Av. España, 51, 28221 Majadahonda, Madrid",
+    "city": "Majadahonda",
+    "url": "https://cineszocomajadahonda.org/#",
+    "googleMapsUrl": "https://maps.app.goo.gl/s7WfkrXS8JaEipGD7",
+    "isActive": true
+  },
+  {
+    "id": "recSEE4IAyqvyiF5U",
+    "name": "Cinesa Equinoccio",
+    "chain": "Cinesa",
+    "address": "Equinoccio, C. Fresa, 2, 28220 Majadahonda, Madrid",
+    "city": "Majadahonda",
+    "url": "https://www.cinesa.es/cines/equinoccio/",
+    "googleMapsUrl": "https://maps.google.com/?q=Calle+Fresa+2+Majadahonda",
+    "isActive": true
+  },
+  {
+    "id": "recdrspxFadOgxl0s",
+    "name": "Cinesa Heron City Las Rozas",
+    "chain": "Cinesa",
+    "address": "Calle Camilo José Cela, 2, 28232 Las Rozas",
+    "city": "Las Rozas",
+    "url": "https://www.cinesa.es/cines/heron-city-las-rozas/",
+    "googleMapsUrl": "https://maps.google.com/?q=Heron+City+Las+Rozas",
+    "isActive": true
+  },
+  {
+    "id": "recXIxKMkbNdQBuBP",
+    "name": "Cinesa Intu Xanadú",
+    "chain": "Cinesa",
+    "address": "Autovía A-5, km 23, 28939 Arroyomolinos",
+    "city": "Arroyomolinos",
+    "url": "https://www.cinesa.es/cines/intu-xanadu/",
+    "googleMapsUrl": "https://maps.app.goo.gl/4rxA6msdpLwDSZG96",
+    "isActive": true
+  },
+  {
+    "id": "recMWCrKGhtXPNAKl",
+    "name": "Cinesa La Gavia",
+    "chain": "Cinesa",
+    "address": "CC La Gavia, C. Adolfo Bioy Casares, 2, Villa de Vallecas, 28051 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cinesa.es/cines/la-gavia/",
+    "googleMapsUrl": "https://maps.app.goo.gl/GV2mtyzzkPapnNEYA",
+    "isActive": true
+  },
+  {
+    "id": "recG4djhaIdM2GyGu",
+    "name": "Cinesa La Moraleja",
+    "chain": "Cinesa",
+    "address": "Avenida de Europa, 13, 28108 Alcobendas",
+    "city": "Alcobendas",
+    "url": "https://www.cinesa.es/cines/la-moraleja/",
+    "googleMapsUrl": "https://maps.app.goo.gl/71tRDRVCwEJ4QGwG8",
+    "isActive": true
+  },
+  {
+    "id": "recmSIMbt5mzopeYX",
+    "name": "Cinesa Las Rosas",
+    "chain": "Cinesa",
+    "address": "Las Rosas, Av. de Guadalajara, 2, San Blas-Canillejas, 28032 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cinesa.es/cines/las-rosas/",
+    "googleMapsUrl": "https://maps.app.goo.gl/FQoJZyrK5JqZLR8Z7",
+    "isActive": true
+  },
+  {
+    "id": "recThmXTXfZCQz1YH",
+    "name": "Cinesa LUXE Oasiz",
+    "chain": "Cinesa",
+    "address": "Oasiz, Av. Premios Nobel, 3, 28850 Torrejón de Ardoz, Madrid",
+    "city": "Torrejón de Ardoz",
+    "url": "https://www.cinesa.es/cines/oasiz/",
+    "googleMapsUrl": "https://maps.app.goo.gl/898Z7iMbrQ4sH92v9",
+    "isActive": true
+  },
+  {
+    "id": "recHbIb8o4Tem6LSy",
+    "name": "Cinesa Manoteras",
+    "chain": "Cinesa",
+    "address": "Av. de Manoteras, 40, Hortaleza, 28050 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cinesa.es/cines/manoteras/",
+    "googleMapsUrl": "https://maps.app.goo.gl/DJPEHbfQD13sEeto7",
+    "isActive": true
+  },
+  {
+    "id": "recIeGc6k2EX8SB42",
+    "name": "Cinesa Méndez Álvaro",
+    "chain": "Cinesa",
+    "address": "C. Acanto, 2, Arganzuela, 28045 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cinesa.es/cines/mendez-alvaro/",
+    "googleMapsUrl": "https://maps.app.goo.gl/rMkjo4wa3iVWnAE27",
+    "isActive": true
+  },
+  {
+    "id": "rece7obkyEnUTeqqe",
+    "name": "Cinesa Nassica",
+    "chain": "Cinesa",
+    "address": "Nassica, Av. Río Guadalquivir, 13, 28906 Getafe, Madrid",
+    "city": "Getafe",
+    "url": "https://www.cinesa.es/cines/nassica/",
+    "googleMapsUrl": "https://maps.google.com/?q=Avenida+Rio+Guadalquivir+13+Getafe",
+    "isActive": true
+  },
+  {
+    "id": "recwvJLhU9xmE6PTp",
+    "name": "Cinesa Parquesur",
+    "chain": "Cinesa",
+    "address": "Parquesur, Av. de Gran Bretaña, S/n, 28916 Leganés, Madrid",
+    "city": "Leganés",
+    "url": "https://www.cinesa.es/cines/parquesur/",
+    "googleMapsUrl": "https://maps.app.goo.gl/mYeVZ43wFEjVhs8p8",
+    "isActive": true
+  },
+  {
+    "id": "reciByVoqj6tIq5gr",
+    "name": "Cinesa Plaza Loranca 2",
+    "chain": "Cinesa",
+    "address": "Avenida de Pablo Iglesias 17, Plaza Loranca, 2, 28942 Fuenlabrada, Madrid",
+    "city": "Fuenlabrada",
+    "url": "https://www.cinesa.es/cines/plaza-loranca-2/",
+    "googleMapsUrl": "https://maps.app.goo.gl/Axr8GDr8mR587cfe9",
+    "isActive": true
+  },
+  {
+    "id": "recD64OnqpXrQhlBb",
+    "name": "Cinesa Príncipe Pío",
+    "chain": "Cinesa",
+    "address": "Estación Príncipe Pío, C. de Mozart, 2, Moncloa - Aravaca, 28008 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cinesa.es/cines/principe-pio/",
+    "googleMapsUrl": "https://maps.app.goo.gl/XgBLLdkyRX8Ew7GBA",
+    "isActive": true
+  },
+  {
+    "id": "recCtcP16X7GXoZ6b",
+    "name": "Cinesa Proyecciones",
+    "chain": "Cinesa",
+    "address": "Calle de Fuencarral, 136, Chamberí, 28010 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cinesa.es/cines/proyecciones/",
+    "googleMapsUrl": "https://maps.app.goo.gl/Q6529SZfQQMbFKzJ7",
+    "isActive": true
+  },
+  {
+    "id": "recFAOJsMJaPIQumZ",
+    "name": "Cineteca Madrid",
+    "chain": "Public (municipal)",
+    "address": "Plaza de Legazpi, 8, 28045 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cinetecamadrid.com/programacion",
+    "googleMapsUrl": "https://maps.google.com/?q=Cineteca+Madrid",
+    "isActive": true
+  },
+  {
+    "id": "recf2zOfeD2UKuJ86",
+    "name": "Conde Duque Auditorio Morasol",
+    "chain": "Conde Duque",
+    "address": "Calle Alberto Aguilera, 4, 28015 Madrid",
+    "city": "Madrid",
+    "url": "https://condeduquemorasol.com/",
+    "googleMapsUrl": "https://maps.google.com/?q=Conde+Duque+Morasol",
+    "isActive": true
+  },
+  {
+    "id": "rec53u3nCFjEhAidg",
+    "name": "Golem",
+    "chain": "Golem",
+    "address": "Calle Martín de los Heros, 14, 28008 Madrid",
+    "city": "Madrid",
+    "url": "https://www.golem.es/golem/golem-madrid",
+    "googleMapsUrl": "https://maps.app.goo.gl/NCNuT7GeJ8HmqAtG8",
+    "isActive": true
+  },
+  {
+    "id": "rec1QC2RTk0XpgC5h",
+    "name": "Institut français de Madrid",
+    "chain": "Public (state)",
+    "address": "Calle del Marqués de la Ensenada, 12, Local 1, Centro, 28004 Madrid",
+    "city": "Madrid",
+    "url": "https://madrid.extranet-aec.com/events/view/16-ENTRADACULTURAL#/",
+    "googleMapsUrl": "https://maps.app.goo.gl/g43uU792Wn5EtE2U9",
+    "isActive": true
+  },
+  {
+    "id": "recyO29XvK8Ayy1tn",
+    "name": "Kinépolis Madrid Ciudad de la Imagen",
+    "chain": "Kinépolis",
+    "address": "C. Edgar Neville, s/n, 28223 Madrid",
+    "city": "Pozuelo de Alarcón",
+    "url": "https://kinepolis.es/?complex=KMAD&select_theater=KMAD&main_section=ya+a+la+venta",
+    "googleMapsUrl": "https://maps.google.com/?q=Kinepolis+Ciudad+de+la+Imagen",
+    "isActive": true
+  },
+  {
+    "id": "recXKpc9wE7oCXdtI",
+    "name": "Kinépolis Madrid Diversia",
+    "chain": "Kinépolis",
+    "address": "Avenida de Bruselas, 21, 28108 Alcobendas",
+    "city": "Alcobendas",
+    "url": "https://kinepolis.es/?complex=KALCO&main_section=today",
+    "googleMapsUrl": "https://maps.app.goo.gl/6GnRZPbuW8V3o24c6",
+    "isActive": true
+  },
+  {
+    "id": "rec6k0VxQK3UiFEOb",
+    "name": "La Casa Encendida",
+    "chain": "Independent",
+    "address": "Rda. de Valencia, 2, Centro, 28012 Madrid",
+    "city": "Madrid",
+    "url": "https://www.lacasaencendida.es/actividades?t[0]=activity_2",
+    "googleMapsUrl": "https://maps.app.goo.gl/iiafVueeFE7WDzUJ8",
+    "isActive": true
+  },
+  {
+    "id": "recEYkoxZINtHaIDu",
+    "name": "mk2 Cine Paz",
+    "chain": "MK2",
+    "address": "Calle de Fuencarral, 125, 28010 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cinepazmadrid.es/es/",
+    "googleMapsUrl": "https://maps.app.goo.gl/s1ZiQDNehooyjzHx6",
+    "isActive": true
+  },
+  {
+    "id": "recUILOIwdSEsYy2N",
+    "name": "mk2 Palacio de Hielo",
+    "chain": "MK2",
+    "address": "Calle de Silvano, 77, 28043 Madrid",
+    "city": "Madrid",
+    "url": "https://www.mk2palaciodehielo.es/es/",
+    "googleMapsUrl": "https://maps.app.goo.gl/eR23R5zdNsmej91d7",
+    "isActive": true
+  },
+  {
+    "id": "rec9H8ZOsCdvE99xn",
+    "name": "Ocine Plaza Éboli",
+    "chain": "Ocine",
+    "address": "Centro Comercial Plaza Eboli, C. Pablo Picasso, s/n, 28320 Pinto, Madrid",
+    "city": "Pinto",
+    "url": "https://www.ocineplazaeboli.es/",
+    "googleMapsUrl": "https://maps.app.goo.gl/MTPbVjTfyEgCf7dR9",
+    "isActive": true
+  },
+  {
+    "id": "recMtraX2uAIRDY72",
+    "name": "Ocine Quadernillos",
+    "chain": "Ocine",
+    "address": "Centro Comercial Quadernillos. Av. de Don Juan Tenorio, s/n\nAlcalá de Henares, Madrid (España)",
+    "city": "Alcala de Henares",
+    "url": "https://www.ocinequadernillos.es/",
+    "googleMapsUrl": "https://maps.app.goo.gl/BBa2s1xGFGiPvaHe9",
+    "isActive": true
+  },
+  {
+    "id": "recuXOZoDsRJbzzCc",
+    "name": "Ocine Urban Caleido",
+    "chain": "Ocine",
+    "address": "Paseo de la Castellana, 259, 28046 Madrid",
+    "city": "Madrid",
+    "url": "https://www.ocineurbancaleido.es/",
+    "googleMapsUrl": "https://maps.app.goo.gl/9JdLEftaivhgjkTk6",
+    "isActive": true
+  },
+  {
+    "id": "recXKRdY8HDJoHmui",
+    "name": "Ocine Urban X-Madrid",
+    "chain": "Ocine",
+    "address": "Calle Oslo, 53, 28922 Alcorcón",
+    "city": "Alcorcón",
+    "url": "https://www.ocineurbanxmadrid.es/",
+    "googleMapsUrl": "https://maps.app.goo.gl/1LLy8R19WYgKHw2KA",
+    "isActive": true
+  },
+  {
+    "id": "reczoZbLSGMBtaoIb",
+    "name": "Odeon Alcalá Norte",
+    "chain": "Odeón",
+    "address": "C. Alcalá, 414, 2ª planta, Local 1-2, Cdad. Lineal, 28027 Madrid",
+    "city": "Madrid",
+    "url": "https://odeonmulticines.com/odeon-alcala-norte",
+    "googleMapsUrl": "https://maps.app.goo.gl/Ma7VZD4kcHV2GHgc6",
+    "isActive": true
+  },
+  {
+    "id": "recwciRVyTD4mq7HA",
+    "name": "Odeón Gran Plaza 2",
+    "chain": "Odeón",
+    "address": "C. de los Químicos, 2, 28222 Majadahonda, Madrid",
+    "city": "Majadahonda",
+    "url": "https://odeonmulticines.com/odeon-gran-plaza-2",
+    "googleMapsUrl": "https://maps.app.goo.gl/Vm17Tqrk5nXxxY5k8",
+    "isActive": true
+  },
+  {
+    "id": "recfJmagdPEXcy1rN",
+    "name": "Odeón Sambil",
+    "chain": "Odeón",
+    "address": "C. de Mondragón, s/n, Centro Comercial Sambil, 28917 Outlet, Madrid",
+    "city": "Leganés",
+    "url": "https://odeonmulticines.com/odeon-sambil",
+    "googleMapsUrl": "https://maps.app.goo.gl/tqYQuhdD4BK3J9NXA",
+    "isActive": true
+  },
+  {
+    "id": "recDbcWcDsSCDw5WZ",
+    "name": "Odeón Tres Cantos",
+    "chain": "Odeón",
+    "address": "Av. de los Labradores, 9, 28760 Tres Cantos, Madrid",
+    "city": "Tres Cantos",
+    "url": "https://odeonmulticines.com/Principal/Cine/073/3Cantos",
+    "googleMapsUrl": "https://maps.app.goo.gl/EBs2sgyx3m4mK3bn8",
+    "isActive": true
+  },
+  {
+    "id": "recI0DqoPpASDLCJK",
+    "name": "Pequeño Cine Estudio",
+    "chain": "Independent",
+    "address": "C/ de Magallanes, 1, Chamberí, 28015 Madrid",
+    "city": "Madrid",
+    "url": "https://www.pcineestudio.es/",
+    "googleMapsUrl": "https://maps.app.goo.gl/d158np93RyypfmcX8",
+    "isActive": true
+  },
+  {
+    "id": "recNDyVN8EmLD2DPw",
+    "name": "Renoir Plaza de España",
+    "chain": "Renoir",
+    "address": "C. de Martín de los Heros, 12, Moncloa - Aravaca, 28008 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cinesrenoir.com/cine/renoir-plaza-de-espana/cartelera/",
+    "googleMapsUrl": "https://maps.app.goo.gl/1bkejcvqk3ffSNyMA",
+    "isActive": true
+  },
+  {
+    "id": "rec7lOti32t0ofqtb",
+    "name": "Renoir Princesa",
+    "chain": "Renoir",
+    "address": "Calle de la Princesa, 3, Moncloa - Aravaca, 28008 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cinesrenoir.com/cine/cines-princesa/cartelera/",
+    "googleMapsUrl": "https://maps.app.goo.gl/sR3UL9Q7j6kYtULo7",
+    "isActive": true
+  },
+  {
+    "id": "recDmFytt75cJdX5R",
+    "name": "Renoir Retiro",
+    "chain": "Renoir",
+    "address": "C. de Narváez, 42, Retiro, 28009 Madrid",
+    "city": "Madrid",
+    "url": "https://www.cinesrenoir.com/cine/renoir-retiro/cartelera/",
+    "googleMapsUrl": "https://maps.app.goo.gl/3j6KbdREh6YE2N5Y6",
+    "isActive": true
+  },
+  {
+    "id": "recy8IeOJSF1Ezcgq",
+    "name": "Restón Cinema",
+    "chain": "Independent",
+    "address": "Av. del Mar Mediterráneo, 3, 28341 Valdemoro, Madrid, España",
+    "city": "Valdemoro",
+    "url": "https://www.reservaentradas.com/cine/madrid/restoncinema/",
+    "googleMapsUrl": "https://maps.app.goo.gl/FzPmQ9Moi3cfuDnbA",
+    "isActive": true
+  },
+  {
+    "id": "recWGsFA8woOCJsCu",
+    "name": "Sala Berlanga",
+    "chain": "Public (state)",
+    "address": "C. de Andrés Mellado, 53, Chamberí, 28015 Madrid",
+    "city": "Madrid",
+    "url": "https://salaberlanga.com/",
+    "googleMapsUrl": "https://maps.app.goo.gl/Z9gt7dDar5eXNcHi9",
+    "isActive": true
+  },
+  {
+    "id": "rec4uUhh07ifWe6Pr",
+    "name": "Sala Covibar",
+    "chain": "Independent",
+    "address": "Centro Cívico Comercial Covibar, Av. de Covibar, 8, 28523 Rivas-Vaciamadrid",
+    "city": "Rivas-Vaciamadrid",
+    "url": "https://www.covibar.es/cine-sala-covibar",
+    "googleMapsUrl": "https://maps.app.goo.gl/arTp9LyuZ8XQ5Yer7",
+    "isActive": true
+  },
+  {
+    "id": "recJNZktPzcN5yhlf",
+    "name": "Sala Equis",
+    "chain": "Independent",
+    "address": "C. del Duque de Alba, 4, Centro, 28012 Madrid",
+    "city": "Madrid",
+    "url": "https://salaequis.es/taquilla/",
+    "googleMapsUrl": "https://maps.app.goo.gl/xxoMvwwiSkDfgzaQ9",
+    "isActive": true
+  },
+  {
+    "id": "recikwIBvSbXH0OId",
+    "name": "Spazio Cines",
+    "chain": "Independent",
+    "address": "Centro Comercial El Ferial, C. de Pinto, s/n, 28982 Parla, Madrid",
+    "city": "Parla",
+    "url": "https://spaziocines.es/",
+    "googleMapsUrl": "https://maps.app.goo.gl/266Da5qoHkAHMoBAA",
+    "isActive": true
+  },
+  {
+    "id": "recQBcZrPJKbHJgec",
+    "name": "Yelmo Cines Ideal",
+    "chain": "Yelmo",
+    "address": "Calle del Dr Cortezo, 6, Centro, 28012 Madrid",
+    "city": "Madrid",
+    "url": "https://www.yelmocines.es/cartelera/madrid/yelmo-cines-ideal",
+    "googleMapsUrl": "https://maps.app.goo.gl/1PtGdoSnAVML1eTi8",
+    "isActive": true
+  },
+  {
+    "id": "recLB8i1nqSl3lRQT",
+    "name": "Yelmo Cines Islazul",
+    "chain": "Yelmo",
+    "address": "C. de la Calderilla, 1, Carabanchel, 28054 Madrid",
+    "city": "Madrid",
+    "url": "https://www.yelmocines.es/cartelera/madrid/yelmo-cines-islazul",
+    "googleMapsUrl": "https://maps.app.goo.gl/zUK6Mz4BqAJ7LHfj8",
+    "isActive": true
+  },
+  {
+    "id": "recsAKqivEo82mEF0",
+    "name": "Yelmo Cines Palafox Luxury",
+    "chain": "Yelmo",
+    "address": "C. de Luchana, 15, Chamberí, 28010 Madrid",
+    "city": "Madrid",
+    "url": "https://www.yelmocines.es/cartelera/madrid/palafox-luxury",
+    "googleMapsUrl": "https://maps.app.goo.gl/RqcNkGDAaXKmnxdq9",
+    "isActive": true
+  },
+  {
+    "id": "recKVxVKPMWEPCwBJ",
+    "name": "Yelmo Cines Planetocio",
+    "chain": "Yelmo",
+    "address": "Avenida Juan Carlos I, s/n, 28905 Alcorcón",
+    "city": "Collado Villalba",
+    "url": "https://yelmocines.es/cartelera/madrid/planetocio",
+    "googleMapsUrl": "https://maps.google.com/?q=Planetocio+Alcorcon",
+    "isActive": true
+  },
+  {
+    "id": "recdeCY31d4Hxl30o",
+    "name": "Yelmo Cines Plenilunio",
+    "chain": "Yelmo",
+    "address": "C. de Aracne, s / n, San Blas-Canillejas, 28022 Madrid",
+    "city": "Madrid",
+    "url": "https://yelmocines.es/cartelera/madrid/yelmo-cines-plenilunio",
+    "googleMapsUrl": "https://maps.app.goo.gl/QfWeCb9ga3UhX6NH6",
+    "isActive": true
+  },
+  {
+    "id": "rechzOuayt3UetU95",
+    "name": "Yelmo Cines TresAguas",
+    "chain": "Yelmo",
+    "address": "Avenida San Martín de Valdeiglesias, 20, 28922 Alcorcón",
+    "city": "Alcorcón",
+    "url": "https://yelmocines.es/cartelera/madrid/tresaguas",
+    "googleMapsUrl": "https://maps.app.goo.gl/QkxBNKeDBCWJHDkD6",
+    "isActive": true
+  },
+  {
+    "id": "reczUDDCTCZ9mxka0",
+    "name": "Yelmo La Vaguada",
+    "chain": "Yelmo",
+    "address": "C. de Santiago de Compostela, S/N, Fuencarral-El Pardo, 28029 Madrid",
+    "city": "Madrid",
+    "url": "https://yelmocines.es/cartelera/madrid/la-vaguada",
+    "googleMapsUrl": "https://maps.app.goo.gl/RhJWx3ATevtQkWbw8",
+    "isActive": true
+  },
+  {
+    "id": "recV851sWt460iTqT",
+    "name": "Yelmo Parque Corredor",
+    "chain": "Yelmo",
+    "address": "Ctra. Ajalvir Centro Comerci, s/n, 28850 Torrejón de Ardoz, Madrid",
+    "city": "Torrejón de Ardoz",
+    "url": "https://yelmocines.es/cartelera/madrid/premium-parque-corredor",
+    "googleMapsUrl": "https://maps.app.goo.gl/u8aJnCMiq4AxCXQY9",
+    "isActive": true
+  },
+  {
+    "id": "recHMvmbuRupyh1rm",
+    "name": "Yelmo Plaza Norte 2",
+    "chain": "Yelmo",
+    "address": "Pl. del Comercio, 11-12, 28703 San Sebastián de los Reyes, Madrid",
+    "city": "San Sebastián de los Reyes",
+    "url": "https://yelmocines.es/cartelera/madrid/plaza-norte-2",
+    "googleMapsUrl": "https://maps.app.goo.gl/JjMJyfmSyh2e4RDt9",
+    "isActive": true
+  },
+  {
+    "id": "reczXLkNThJJ4ylr5",
+    "name": "Yelmo Rivas H2O",
+    "chain": "Yelmo",
+    "address": "Centro Comercial H2 Ocio, C. Marie Curie, 4, 28521 Rivas-Vaciamadrid, Madrid",
+    "city": "Rivas-Vaciamadrid",
+    "url": "https://yelmocines.es/cartelera/madrid/rivas-h2o",
+    "googleMapsUrl": "https://maps.app.goo.gl/gxigQ7aAUqRp8dRMA",
+    "isActive": true
+  }
+]

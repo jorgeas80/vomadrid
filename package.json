@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run fetch-data && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fetch-data": "tsx scripts/fetch-static-data.ts"
   },
   "dependencies": {
     "next": "^15.1.0",
@@ -19,7 +20,9 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "dotenv": "^16.4.0",
     "tailwindcss": "^4.0.0",
+    "tsx": "^4.7.0",
     "typescript": "^5.7.0"
   }
 }

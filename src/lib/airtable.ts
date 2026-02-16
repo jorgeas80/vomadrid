@@ -17,6 +17,7 @@ const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID ?? "";
 const MOVIES_TABLE = process.env.AIRTABLE_MOVIES_TABLE ?? "movies";
 const CINEMAS_TABLE = process.env.AIRTABLE_CINEMAS_TABLE ?? "cinemas";
 const SCREENINGS_TABLE = process.env.AIRTABLE_SCREENINGS_TABLE ?? "screenings";
+const USE_STATIC_DATA = process.env.USE_STATIC_DATA !== "false"; // Default to true
 
 const BASE_URL = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}`;
 
@@ -209,9 +210,34 @@ function mapScreening(record: AirtableRecord<ScreeningFields>): Screening {
   };
 }
 
+// --- Static data helpers ---
+
+function loadStaticData<T>(filename: string): T {
+  if (typeof window !== "undefined") {
+    // Client-side: should never happen, but return empty data
+    console.warn("Static data should be loaded server-side only");
+    return [] as T;
+  }
+
+  try {
+    // Server-side: read from file system
+    const fs = require("fs");
+    const path = require("path");
+    const filePath = path.join(process.cwd(), "src", "data", filename);
+    const data = fs.readFileSync(filePath, "utf8");
+    return JSON.parse(data);
+  } catch (error) {
+    console.error(`Failed to load static data from ${filename}:`, error);
+    return [] as T;
+  }
+}
+
 // --- Public API ---
 
 export async function getMovies(): Promise<Movie[]> {
+  if (USE_STATIC_DATA) {
+    return loadStaticData<Movie[]>("movies.json");
+  }
   const records = await fetchAirtable<MovieFields>(
     MOVIES_TABLE,
     {
@@ -225,6 +251,11 @@ export async function getMovies(): Promise<Movie[]> {
 }
 
 export async function getMovie(id: string): Promise<Movie | null> {
+  if (USE_STATIC_DATA) {
+    const movies = loadStaticData<Movie[]>("movies.json");
+    return movies.find((m) => m.id === id) ?? null;
+  }
+
   const record = await fetchAirtableRecord<MovieFields>(
     MOVIES_TABLE,
     id,
@@ -234,6 +265,10 @@ export async function getMovie(id: string): Promise<Movie | null> {
 }
 
 export async function getCinemas(): Promise<Cinema[]> {
+  if (USE_STATIC_DATA) {
+    return loadStaticData<Cinema[]>("cinemas.json");
+  }
+
   const records = await fetchAirtable<CinemaFields>(
     CINEMAS_TABLE,
     {
@@ -247,6 +282,11 @@ export async function getCinemas(): Promise<Cinema[]> {
 }
 
 export async function getCinema(id: string): Promise<Cinema | null> {
+  if (USE_STATIC_DATA) {
+    const cinemas = loadStaticData<Cinema[]>("cinemas.json");
+    return cinemas.find((c) => c.id === id) ?? null;
+  }
+
   const record = await fetchAirtableRecord<CinemaFields>(
     CINEMAS_TABLE,
     id,
@@ -261,59 +301,75 @@ export async function getScreenings(filters?: {
   date?: string;
   chain?: string;
 }): Promise<Screening[]> {
-  const formulas: string[] = [
-    `{${SCREENING_FIELDS.isActive}} = TRUE()`,
-    `IS_AFTER({${SCREENING_FIELDS.date}}, DATEADD(TODAY(), -1, 'days'))`,
-  ];
+  let screenings: Screening[];
 
-  if (filters?.movieId) {
-    formulas.push(`RECORD_ID() != "" `); // We'll filter by movieId after fetch since it's a linked record
+  if (USE_STATIC_DATA) {
+    // Load from static JSON (already has movie and cinema resolved)
+    screenings = loadStaticData<Screening[]>("screenings.json");
+  } else {
+    // Fetch from Airtable API
+    const formulas: string[] = [
+      `{${SCREENING_FIELDS.isActive}} = TRUE()`,
+      `IS_AFTER({${SCREENING_FIELDS.date}}, DATEADD(TODAY(), -1, 'days'))`,
+    ];
+
+    if (filters?.movieId) {
+      formulas.push(`RECORD_ID() != "" `); // We'll filter by movieId after fetch since it's a linked record
+    }
+
+    const filterByFormula =
+      formulas.length > 1
+        ? `AND(${formulas.join(", ")})`
+        : formulas[0];
+
+    const cacheKey = `screenings:${JSON.stringify(filters ?? {})}`;
+
+    const records = await fetchAirtable<ScreeningFields>(
+      SCREENINGS_TABLE,
+      {
+        filterByFormula,
+        "sort[0][field]": SCREENING_FIELDS.date,
+        "sort[0][direction]": "asc",
+      },
+      cacheKey
+    );
+
+    screenings = records.map(mapScreening);
+
+    // Filter by linked record IDs (can't use filterByFormula for linked record IDs directly)
+    if (filters?.movieId) {
+      screenings = screenings.filter((s) => s.movieId === filters.movieId);
+    }
+    if (filters?.cinemaId) {
+      screenings = screenings.filter((s) => s.cinemaId === filters.cinemaId);
+    }
+
+    // Resolve linked records for remaining screenings
+    const movieIds = [...new Set(screenings.map((s) => s.movieId).filter(Boolean))];
+    const cinemaIds = [...new Set(screenings.map((s) => s.cinemaId).filter(Boolean))];
+
+    const [movies, cinemas] = await Promise.all([
+      Promise.all(movieIds.map((id) => getMovie(id))),
+      Promise.all(cinemaIds.map((id) => getCinema(id))),
+    ]);
+
+    const movieMap = new Map(movies.filter(Boolean).map((m) => [m!.id, m!]));
+    const cinemaMap = new Map(cinemas.filter(Boolean).map((c) => [c!.id, c!]));
+
+    screenings = screenings.map((s) => ({
+      ...s,
+      movie: movieMap.get(s.movieId),
+      cinema: cinemaMap.get(s.cinemaId),
+    }));
   }
 
-  const filterByFormula =
-    formulas.length > 1
-      ? `AND(${formulas.join(", ")})`
-      : formulas[0];
-
-  const cacheKey = `screenings:${JSON.stringify(filters ?? {})}`;
-
-  const records = await fetchAirtable<ScreeningFields>(
-    SCREENINGS_TABLE,
-    {
-      filterByFormula,
-      "sort[0][field]": SCREENING_FIELDS.date,
-      "sort[0][direction]": "asc",
-    },
-    cacheKey
-  );
-
-  let screenings = records.map(mapScreening);
-
-  // Filter by linked record IDs (can't use filterByFormula for linked record IDs directly)
+  // Apply filters (works for both static and API data)
   if (filters?.movieId) {
     screenings = screenings.filter((s) => s.movieId === filters.movieId);
   }
   if (filters?.cinemaId) {
     screenings = screenings.filter((s) => s.cinemaId === filters.cinemaId);
   }
-
-  // Resolve linked records for remaining screenings
-  const movieIds = [...new Set(screenings.map((s) => s.movieId).filter(Boolean))];
-  const cinemaIds = [...new Set(screenings.map((s) => s.cinemaId).filter(Boolean))];
-
-  const [movies, cinemas] = await Promise.all([
-    Promise.all(movieIds.map((id) => getMovie(id))),
-    Promise.all(cinemaIds.map((id) => getCinema(id))),
-  ]);
-
-  const movieMap = new Map(movies.filter(Boolean).map((m) => [m!.id, m!]));
-  const cinemaMap = new Map(cinemas.filter(Boolean).map((c) => [c!.id, c!]));
-
-  screenings = screenings.map((s) => ({
-    ...s,
-    movie: movieMap.get(s.movieId),
-    cinema: cinemaMap.get(s.cinemaId),
-  }));
 
   // Filter by chain (requires resolved cinema)
   if (filters?.chain) {
