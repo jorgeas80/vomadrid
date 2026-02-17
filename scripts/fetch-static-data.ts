@@ -10,7 +10,7 @@ import { resolve } from "path";
 config({ path: resolve(process.cwd(), ".env") });
 
 import { writeFileSync, mkdirSync } from "fs";
-import { join } from "path";
+import { join, extname } from "path";
 
 // Helper function
 function formatRuntime(seconds?: number): string {
@@ -18,6 +18,30 @@ function formatRuntime(seconds?: number): string {
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
   return h > 0 ? `${h}h ${m}min` : `${m}min`;
+}
+
+// Download a poster image to public/posters/ and return the local path
+async function downloadPoster(
+  url: string,
+  movieId: string,
+  postersDir: string
+): Promise<string> {
+  try {
+    const ext = extname(new URL(url).pathname) || ".jpg";
+    const filename = `${movieId}${ext}`;
+    const filePath = join(postersDir, filename);
+
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    const buffer = Buffer.from(await res.arrayBuffer());
+    writeFileSync(filePath, buffer);
+
+    return `/posters/${filename}`;
+  } catch (error) {
+    console.warn(`  ⚠️  Failed to download poster for ${movieId}: ${error}`);
+    return url; // fallback to original URL
+  }
 }
 
 // Fetch raw data from Airtable (no relation resolving)
@@ -136,9 +160,21 @@ async function fetchData() {
     console.log(`✅ Processed ${cinemas.length} active cinemas`);
     console.log(`✅ Processed ${screenings.length} active screenings`);
 
-    // Create data directory if it doesn't exist
+    // Create directories if they don't exist
     const dataDir = join(process.cwd(), "src", "data");
+    const postersDir = join(process.cwd(), "public", "posters");
     mkdirSync(dataDir, { recursive: true });
+    mkdirSync(postersDir, { recursive: true });
+
+    // Download poster images locally
+    console.log("📷 Downloading posters...");
+    for (const movie of movies) {
+      if (movie.poster) {
+        console.log(`  📷 ${movie.title}`);
+        movie.poster = await downloadPoster(movie.poster, movie.id, postersDir);
+      }
+    }
+    console.log(`✅ Posters downloaded`);
 
     // Write JSON files
     writeFileSync(
