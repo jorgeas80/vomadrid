@@ -27,6 +27,7 @@ export interface MovieFields {
   "Is active"?: boolean;
   "Sort order"?: number;
   imdb_link?: string;
+  filmaffinity_link?: string;
   screenings?: string[]; // linked record IDs
 }
 
@@ -66,6 +67,7 @@ export interface Movie {
   ageRating: string;
   originalLanguage: string;
   imdbLink: string;
+  filmaffinityLink: string;
   isActive: boolean;
   sortOrder: number;
 }

@@ -111,6 +111,7 @@ async function fetchData() {
         ageRating: r.fields["Age rating"]?.[0] ?? "",
         originalLanguage: r.fields["Original language"] ?? "",
         imdbLink: r.fields["imdb_link"] ?? "",
+        filmaffinityLink: r.fields["filmaffinity_link"] ?? "",
         isActive: true,
         sortOrder: r.fields["Sort order"] ?? 999,
       }))
