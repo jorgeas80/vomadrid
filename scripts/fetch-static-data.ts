@@ -157,7 +157,12 @@ async function fetchData() {
       .filter((s: any) => s.date >= new Date().toISOString().split("T")[0])
       .sort((a: any, b: any) => a.date.localeCompare(b.date));
 
-    console.log(`✅ Processed ${movies.length} active movies`);
+    // Only keep movies that have at least one active screening
+    const movieIdsWithScreenings = new Set(screenings.map((s: any) => s.movieId));
+    const moviesWithScreenings = movies.filter((m: any) => movieIdsWithScreenings.has(m.id));
+    const moviesDropped = movies.length - moviesWithScreenings.length;
+
+    console.log(`✅ Processed ${movies.length} active movies (${moviesDropped} without screenings excluded)`);
     console.log(`✅ Processed ${cinemas.length} active cinemas`);
     console.log(`✅ Processed ${screenings.length} active screenings`);
 
@@ -169,7 +174,7 @@ async function fetchData() {
 
     // Download poster images locally
     console.log("📷 Downloading posters...");
-    for (const movie of movies) {
+    for (const movie of moviesWithScreenings) {
       if (movie.poster) {
         console.log(`  📷 ${movie.title}`);
         movie.poster = await downloadPoster(movie.poster, movie.id, postersDir);
@@ -180,7 +185,7 @@ async function fetchData() {
     // Write JSON files
     writeFileSync(
       join(dataDir, "movies.json"),
-      JSON.stringify(movies, null, 2)
+      JSON.stringify(moviesWithScreenings, null, 2)
     );
     writeFileSync(
       join(dataDir, "cinemas.json"),
