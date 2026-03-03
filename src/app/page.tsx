@@ -90,6 +90,9 @@ export default function HomePage() {
         <p className="mt-1 text-sm text-[var(--color-muted)]">
           Find movies in original version (VO) playing in cinemas across Madrid and buy tickets online.
         </p>
+        <p className="mt-1 text-xs text-[var(--color-muted)]">
+          Sessions are updated daily — if you only see a few dates, check back tomorrow for new availability.
+        </p>
       </div>
       <MovieFilters
         search={search}
