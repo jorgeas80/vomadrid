@@ -16,6 +16,7 @@ export default function HomePage() {
   const [genre, setGenre] = useState("");
   const [language, setLanguage] = useState("");
   const [ageRating, setAgeRating] = useState("");
+  const [dateFilter, setDateFilter] = useState<"all" | "today" | "week">("all");
 
   useEffect(() => {
     Promise.all([
@@ -58,18 +59,27 @@ export default function HomePage() {
 
   // Filter movies
   const filtered = useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const weekEnd = new Date(today);
+    weekEnd.setDate(weekEnd.getDate() + 7);
+    const toDate = (s: string) => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+    const todayStr = today.toISOString().split("T")[0];
+
     return movies.filter((m) => {
-      if (
-        debouncedSearch &&
-        !m.title.toLowerCase().includes(debouncedSearch.toLowerCase())
-      )
-        return false;
+      if (debouncedSearch && !m.title.toLowerCase().includes(debouncedSearch.toLowerCase())) return false;
       if (genre && !m.genres.includes(genre)) return false;
       if (language && m.originalLanguage !== language) return false;
       if (ageRating && m.ageRating !== ageRating) return false;
+      if (dateFilter !== "all") {
+        const next = nextSessionMap.get(m.id);
+        if (!next) return false;
+        if (dateFilter === "today" && next !== todayStr) return false;
+        if (dateFilter === "week" && toDate(next) >= weekEnd) return false;
+      }
       return true;
     });
-  }, [movies, debouncedSearch, genre, language, ageRating]);
+  }, [movies, debouncedSearch, genre, language, ageRating, dateFilter, nextSessionMap]);
 
   const handleSearchChange = useCallback((v: string) => setSearch(v), []);
   const handleGenreChange = useCallback((v: string) => setGenre(v), []);
@@ -95,7 +105,20 @@ export default function HomePage() {
   return (
     <>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold">Now showing</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold">Now showing</h1>
+          <div className="flex rounded-lg border border-[var(--color-border)] overflow-hidden text-sm font-medium">
+            {(["all", "today", "week"] as const).map((f) => (
+              <button
+                key={f}
+                onClick={() => setDateFilter(f)}
+                className={`px-3 py-1.5 transition-colors ${dateFilter === f ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-card)] text-[var(--color-muted)] hover:text-[var(--color-foreground)]"}`}
+              >
+                {f === "all" ? "All" : f === "today" ? "Today" : "This week"}
+              </button>
+            ))}
+          </div>
+        </div>
         <p className="mt-1 text-sm text-[var(--color-muted)]">
           Find movies in original version (VO) playing in cinemas across Madrid and buy tickets online.
         </p>
