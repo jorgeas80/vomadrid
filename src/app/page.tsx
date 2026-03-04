@@ -27,8 +27,9 @@ export default function HomePage() {
         setMovies(moviesData);
         const map = new Map<string, string>();
         for (const s of screeningsData) {
-          if (!map.has(s.movieId) || s.date < map.get(s.movieId)!) {
-            map.set(s.movieId, s.date);
+          const dateOnly = s.date.split("T")[0];
+          if (!map.has(s.movieId) || dateOnly < map.get(s.movieId)!) {
+            map.set(s.movieId, dateOnly);
           }
         }
         setNextSessionMap(map);
@@ -59,12 +60,8 @@ export default function HomePage() {
 
   // Filter movies
   const filtered = useMemo(() => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const weekEnd = new Date(today);
-    weekEnd.setDate(weekEnd.getDate() + 7);
-    const toDate = (s: string) => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
-    const todayStr = today.toISOString().split("T")[0];
+    const todayStr = new Date().toISOString().split("T")[0];
+    const weekEndStr = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
 
     return movies.filter((m) => {
       if (debouncedSearch && !m.title.toLowerCase().includes(debouncedSearch.toLowerCase())) return false;
@@ -75,7 +72,7 @@ export default function HomePage() {
         const next = nextSessionMap.get(m.id);
         if (!next) return false;
         if (dateFilter === "today" && next !== todayStr) return false;
-        if (dateFilter === "week" && toDate(next) >= weekEnd) return false;
+        if (dateFilter === "week" && next >= weekEndStr) return false;
       }
       return true;
     });
