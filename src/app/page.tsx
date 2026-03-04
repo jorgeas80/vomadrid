@@ -7,6 +7,7 @@ import { MovieFilters } from "@/components/MovieFilters";
 
 export default function HomePage() {
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [nextSessionMap, setNextSessionMap] = useState<Map<string, string>>(new Map());
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -17,12 +18,20 @@ export default function HomePage() {
   const [ageRating, setAgeRating] = useState("");
 
   useEffect(() => {
-    fetch("/api/movies")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch");
-        return res.json();
+    Promise.all([
+      fetch("/api/movies").then((res) => { if (!res.ok) throw new Error("Failed to fetch"); return res.json(); }),
+      fetch("/api/screenings").then((res) => { if (!res.ok) throw new Error("Failed to fetch"); return res.json(); }),
+    ])
+      .then(([moviesData, screeningsData]) => {
+        setMovies(moviesData);
+        const map = new Map<string, string>();
+        for (const s of screeningsData) {
+          if (!map.has(s.movieId) || s.date < map.get(s.movieId)!) {
+            map.set(s.movieId, s.date);
+          }
+        }
+        setNextSessionMap(map);
       })
-      .then(setMovies)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, []);
@@ -107,7 +116,7 @@ export default function HomePage() {
         onLanguageChange={handleLanguageChange}
         onAgeRatingChange={handleAgeRatingChange}
       />
-      <MovieGrid movies={filtered} />
+      <MovieGrid movies={filtered} nextSessionMap={nextSessionMap} />
     </>
   );
 }

@@ -2,7 +2,19 @@ import Link from "next/link";
 import type { Movie } from "@/lib/types";
 import { StarRating } from "./StarRating";
 
-export function MovieCard({ movie }: { movie: Movie }) {
+function formatNextSession(dateStr: string): string {
+  const [year, month, day] = dateStr.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  if (date.getTime() === today.getTime()) return "Today";
+  if (date.getTime() === tomorrow.getTime()) return "Tomorrow";
+  return date.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+}
+
+export function MovieCard({ movie, nextSession }: { movie: Movie; nextSession?: string }) {
   return (
     <Link
       href={`/movies/${movie.id}`}
@@ -55,6 +67,11 @@ export function MovieCard({ movie }: { movie: Movie }) {
             </>
           )}
         </div>
+        {nextSession && (
+          <p className="mt-2 text-xs font-medium text-[var(--color-accent)]">
+            Next: {formatNextSession(nextSession)}
+          </p>
+        )}
       </div>
     </Link>
   );
