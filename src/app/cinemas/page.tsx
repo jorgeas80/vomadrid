@@ -1,9 +1,15 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
+import dynamic from "next/dynamic";
 import type { Cinema } from "@/lib/types";
 import { CinemaCard } from "@/components/CinemaCard";
 import { EmptyState } from "@/components/EmptyState";
+
+const CinemaMap = dynamic(
+  () => import("@/components/CinemaMap").then((m) => m.CinemaMap),
+  { ssr: false, loading: () => <div className="h-[480px] w-full rounded-lg border border-[var(--color-border)] bg-[var(--color-card)]" /> }
+);
 
 export default function CinemasPage() {
   const [cinemas, setCinemas] = useState<Cinema[]>([]);
@@ -13,6 +19,7 @@ export default function CinemasPage() {
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [city, setCity] = useState("");
   const [chain, setChain] = useState("");
+  const [view, setView] = useState<"list" | "map">("list");
 
   useEffect(() => {
     fetch("/api/cinemas")
@@ -74,7 +81,23 @@ export default function CinemasPage() {
 
   return (
     <>
-      <h1 className="mb-6 text-2xl font-bold">Cinemas</h1>
+      <div className="mb-6 flex items-center justify-between">
+        <h1 className="text-2xl font-bold">Cinemas</h1>
+        <div className="flex rounded-lg border border-[var(--color-border)] overflow-hidden text-sm font-medium">
+          <button
+            onClick={() => setView("list")}
+            className={`px-3 py-1.5 transition-colors ${view === "list" ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-card)] text-[var(--color-muted)] hover:text-[var(--color-foreground)]"}`}
+          >
+            List
+          </button>
+          <button
+            onClick={() => setView("map")}
+            className={`px-3 py-1.5 transition-colors ${view === "map" ? "bg-[var(--color-primary)] text-white" : "bg-[var(--color-card)] text-[var(--color-muted)] hover:text-[var(--color-foreground)]"}`}
+          >
+            Map
+          </button>
+        </div>
+      </div>
       <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center">
         <div className="flex-1">
           <input
@@ -108,7 +131,9 @@ export default function CinemasPage() {
           </select>
         </div>
       </div>
-      {filtered.length === 0 ? (
+      {view === "map" ? (
+        <CinemaMap cinemas={filtered} />
+      ) : filtered.length === 0 ? (
         <EmptyState
           title="No cinemas found"
           description="Try a different search or come back later."

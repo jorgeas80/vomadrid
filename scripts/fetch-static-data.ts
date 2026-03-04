@@ -128,6 +128,8 @@ async function fetchData() {
         city: r.fields["City"] ?? "",
         url: r.fields["URL"] ?? "",
         googleMapsUrl: r.fields["Google Maps URL"] ?? "",
+        lat: r.fields["Latitude"] ?? undefined,
+        lng: r.fields["Longitude"] ?? undefined,
         isActive: true,
       }))
       .sort((a: any, b: any) => a.name.localeCompare(b.name));

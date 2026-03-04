@@ -38,6 +38,8 @@ export interface CinemaFields {
   City?: string;
   URL?: string;
   "Google Maps URL"?: string;
+  Latitude?: number;
+  Longitude?: number;
   "Is active"?: boolean;
   screenings?: string[]; // linked record IDs
 }
@@ -80,6 +82,8 @@ export interface Cinema {
   city: string;
   url: string;
   googleMapsUrl: string;
+  lat?: number;
+  lng?: number;
   isActive: boolean;
 }
 

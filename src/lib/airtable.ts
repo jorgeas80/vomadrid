@@ -47,6 +47,8 @@ const CINEMA_FIELDS = {
   city: "City",
   url: "URL",
   googleMapsUrl: "Google Maps URL",
+  latitude: "Latitude",
+  longitude: "Longitude",
   isActive: "Is active",
 } as const;
 
@@ -194,6 +196,8 @@ function mapCinema(record: AirtableRecord<CinemaFields>): Cinema {
     city: f[CINEMA_FIELDS.city] ?? "",
     url: f[CINEMA_FIELDS.url] ?? "",
     googleMapsUrl: f[CINEMA_FIELDS.googleMapsUrl] ?? "",
+    lat: f[CINEMA_FIELDS.latitude],
+    lng: f[CINEMA_FIELDS.longitude],
     isActive: f[CINEMA_FIELDS.isActive] ?? false,
   };
 }
