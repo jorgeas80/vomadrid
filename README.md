@@ -6,20 +6,19 @@ Browse movies in original version (VO) playing in Madrid cinemas and buy tickets
 
 - **Next.js 15** (App Router) with TypeScript
 - **Tailwind CSS v4** for styling
-- **Static JSON data** from Airtable (fetched at build time)
+- **Static JSON data** from Google Sheets (fetched at build time)
 - **PostHog** for analytics (optional)
 - **Docker** multi-stage build for deployment
 
-Data is fetched from Airtable once and stored as static JSON files. This eliminates runtime API calls, improves performance, and removes the need for Airtable credentials in production.
+Data is fetched from Google Sheets once and stored as static JSON files. This eliminates runtime API calls, improves performance, and removes the need for credentials in production.
 
 ### Key files
 
 | Path | Purpose |
 |---|---|
-| `src/lib/airtable.ts` | Data loader (static JSON by default, Airtable API fallback) |
+| `scripts/fetch-static-data.ts` | Script to fetch and update data from Google Sheets |
 | `src/lib/types.ts` | TypeScript interfaces for all data models |
 | `src/data/` | Static JSON files (movies, cinemas, screenings) |
-| `scripts/fetch-static-data.ts` | Script to fetch and update data from Airtable |
 | `src/app/api/` | API route handlers (movies, screenings, cinemas) |
 | `src/app/` | Pages: home (movie grid), movie detail, cinemas list, cinema detail |
 
@@ -41,25 +40,28 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-### 3. Update data from Airtable (optional)
+### 3. Update data from Google Sheets (optional)
 
-To fetch fresh data from Airtable, you need to set up environment variables first:
+To fetch fresh data, set up environment variables first:
 
 ```bash
 cp .env.example .env
 ```
 
-Then add your Airtable credentials:
-- `AIRTABLE_API_TOKEN` — Your Airtable personal access token
-- `AIRTABLE_BASE_ID` — The Airtable base ID (starts with `app`)
+Edit `.env` with your credentials:
 
-Fetch and update the static data:
+| Variable | Description |
+|----------|-------------|
+| `GOOGLE_SHEETS_SPREADSHEET_ID` | Spreadsheet ID from the URL (`/d/{ID}/edit`) |
+| `GOOGLE_SERVICE_ACCOUNT_KEY` | Service account JSON key, on a single line |
+
+Then fetch and update the static data:
 
 ```bash
 npm run fetch-data
 ```
 
-This will update `src/data/*.json` files.
+This updates `src/data/*.json` and downloads poster images to `public/posters/`.
 
 ### 4. Build for production
 
@@ -70,15 +72,13 @@ npm start
 
 ### 5. Environment variables
 
+**Required for data fetching:**
+- `GOOGLE_SHEETS_SPREADSHEET_ID` — Spreadsheet ID
+- `GOOGLE_SERVICE_ACCOUNT_KEY` — Service account JSON key (single line)
+
 **Optional PostHog analytics:**
 - `NEXT_PUBLIC_POSTHOG_KEY` — PostHog API key
 - `NEXT_PUBLIC_POSTHOG_HOST` — PostHog host (default: `https://us.i.posthog.com`)
-
-**Optional Airtable configuration:**
-- `USE_STATIC_DATA` — Use static JSON files (default: `true`)
-- `AIRTABLE_CINEMAS_TABLE` — Table name override (default: `cinemas`)
-- `AIRTABLE_MOVIES_TABLE` — Table name override (default: `movies`)
-- `AIRTABLE_SCREENINGS_TABLE` — Table name override (default: `screenings`)
 
 ### 6. Docker
 
@@ -87,27 +87,15 @@ docker build -t vomadrid .
 docker run -p 3000:3000 vomadrid
 ```
 
-Note: Docker build uses static JSON data, no Airtable credentials needed.
+Note: Docker build fetches fresh data at build time — credentials must be available as build args or environment variables.
 
 ## Updating data
 
-When you make changes in Airtable and want to update the static data:
+When the spreadsheet is updated and you want to regenerate the static files:
 
 ```bash
-npm run fetch-data           # Fetch fresh data from Airtable
-git add src/data/            # Stage the updated JSON files
+npm run fetch-data   # Fetch fresh data from Google Sheets
+git add src/data/ public/posters/
 git commit -m "Update static data"
-git push                     # Deploy will use the new data
-```
-
-The fetch script makes only 3 API calls to Airtable (one per table) and resolves all relationships in memory, avoiding rate limits.
-
-## Git setup
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin git@github.com:YOUR_USER/vomadrid.git
-git push -u origin main
+git push             # Deploy will use the new data
 ```
