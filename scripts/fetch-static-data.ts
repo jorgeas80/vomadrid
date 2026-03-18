@@ -126,8 +126,10 @@ async function fetchData() {
     console.log(`✅ Fetched ${screeningsRaw.length} screenings`);
 
     // Map movies
+    const isActive = (v: string) => v?.toLowerCase() === "true" || v?.toLowerCase() === "checked";
+
     const movies = moviesRaw
-      .filter((r) => r["Is active"]?.toLowerCase() === "true")
+      .filter((r) => isActive(r["Is active"]))
       .map((r) => ({
         id: r["id"],
         title: r["Title"] ?? "",
@@ -151,7 +153,7 @@ async function fetchData() {
 
     // Map cinemas
     const cinemas = cinemasRaw
-      .filter((r) => r["Is active"]?.toLowerCase() === "true")
+      .filter((r) => isActive(r["Is active"]))
       .map((r) => ({
         id: r["id"],
         name: r["Cinema name"] ?? "",
@@ -171,7 +173,7 @@ async function fetchData() {
     const cinemaMap = new Map(cinemas.map((c) => [c.id, c]));
 
     const screenings = screeningsRaw
-      .filter((r) => r["Is active"]?.toLowerCase() === "true")
+      .filter((r) => isActive(r["Is active"]))
       .map((r) => {
         const movieId = r["movie_id"] ?? "";
         const cinemaId = r["cinema_id"] ?? "";
