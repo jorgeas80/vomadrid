@@ -11,7 +11,7 @@ config({ path: resolve(process.cwd(), ".env") });
 
 import { writeFileSync, mkdirSync } from "fs";
 import { join, extname } from "path";
-import { GoogleAuth } from "google-auth-library";
+import { readSheetAsObjects } from "../src/lib/sheets";
 
 // Helper function
 function formatRuntime(seconds?: number): string {
@@ -43,67 +43,6 @@ async function downloadPoster(
     console.warn(`  ⚠️  Failed to download poster for ${movieId}: ${error}`);
     return url; // fallback to original URL
   }
-}
-
-// --- Google Sheets client (read-only) ---
-
-let cachedToken: { token: string; expiry: number } | null = null;
-
-async function getAccessToken(): Promise<string> {
-  if (cachedToken && Date.now() < cachedToken.expiry - 60_000) {
-    return cachedToken.token;
-  }
-
-  const keyJson = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
-  if (!keyJson) throw new Error("Missing GOOGLE_SERVICE_ACCOUNT_KEY env var");
-
-  const credentials = JSON.parse(keyJson);
-  const auth = new GoogleAuth({
-    credentials,
-    scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
-  });
-
-  const client = await auth.getClient();
-  const tokenResponse = await (client as any).getAccessToken();
-  if (!tokenResponse.token) throw new Error("Failed to obtain access token");
-
-  cachedToken = {
-    token: tokenResponse.token,
-    expiry: Date.now() + 3_600_000,
-  };
-
-  return cachedToken.token;
-}
-
-async function readSheetAsObjects(tab: string): Promise<Record<string, string>[]> {
-  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
-  if (!spreadsheetId) throw new Error("Missing GOOGLE_SHEETS_SPREADSHEET_ID env var");
-
-  const token = await getAccessToken();
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(tab)}`;
-
-  const res = await fetch(url, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Sheets read error (${res.status}): ${text}`);
-  }
-
-  const data = await res.json();
-  const rows: string[][] = data.values ?? [];
-
-  if (rows.length < 2) return [];
-
-  const headers = rows[0];
-  return rows.slice(1).map((row) => {
-    const obj: Record<string, string> = {};
-    for (let i = 0; i < headers.length; i++) {
-      obj[headers[i]] = row[i] ?? "";
-    }
-    return obj;
-  });
 }
 
 // --- Main fetch logic ---
