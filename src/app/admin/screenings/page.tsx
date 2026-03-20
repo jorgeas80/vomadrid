@@ -261,16 +261,22 @@ export default async function AdminScreeningsPage({
                     {isActiveVal(s["Is active"]) ? "Yes" : "No"}
                   </td>
                   <td className="px-4 py-3">
-                    <div className="flex items-center justify-end gap-2">
-                      <Link href={`/admin/screenings/${s["id"]}/edit`} className="text-blue-600 hover:underline">
-                        Edit
-                      </Link>
-                      <form action={deleteScreening.bind(null, s["id"])}>
-                        <button type="submit" className="text-red-600 hover:underline">
-                          Delete
-                        </button>
-                      </form>
-                    </div>
+                    {s["id"] ? (
+                      <div className="flex items-center justify-end gap-2">
+                        <Link href={`/admin/screenings/${s["id"]}/edit`} className="text-blue-600 hover:underline">
+                          Edit
+                        </Link>
+                        <form action={deleteScreening.bind(null, s["id"])}>
+                          <button type="submit" className="text-red-600 hover:underline">
+                            Delete
+                          </button>
+                        </form>
+                      </div>
+                    ) : (
+                      <span className="text-orange-500 text-xs" title="This row has no ID and cannot be edited or deleted from here. Fix it directly in Google Sheets.">
+                        ⚠ No ID
+                      </span>
+                    )}
                   </td>
                 </tr>
               );

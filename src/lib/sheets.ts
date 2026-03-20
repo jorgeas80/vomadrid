@@ -74,7 +74,7 @@ export async function appendRow(tab: string, row: string[]): Promise<void> {
   const spreadsheetId = getSpreadsheetId();
   const token = await getAccessToken();
   const range = encodeURIComponent(tab);
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`;
 
   const res = await fetch(url, {
     method: "POST",
@@ -124,7 +124,7 @@ export async function updateRow(
   const spreadsheetId = getSpreadsheetId();
   const token = await getAccessToken();
   const range = `${tab}!A${rowIndex}:Z${rowIndex}`;
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(range)}?valueInputOption=RAW`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${encodeURIComponent(range)}?valueInputOption=USER_ENTERED`;
 
   const res = await fetch(url, {
     method: "PUT",

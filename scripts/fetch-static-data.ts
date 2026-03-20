@@ -13,14 +13,6 @@ import { writeFileSync, mkdirSync } from "fs";
 import { join, extname } from "path";
 import { readSheetAsObjects } from "../src/lib/sheets";
 
-// Helper function
-function formatRuntime(seconds?: number): string {
-  if (!seconds) return "";
-  const h = Math.floor(seconds / 3600);
-  const m = Math.floor((seconds % 3600) / 60);
-  return h > 0 ? `${h}h ${m}min` : `${m}min`;
-}
-
 // Download a poster image to public/posters/ and return the local path
 async function downloadPoster(
   url: string,
@@ -80,7 +72,7 @@ async function fetchData() {
         genres: r["Genres"]
           ? r["Genres"].split(",").map((s: string) => s.trim()).filter(Boolean)
           : [],
-        runtime: formatRuntime(r["Runtime"] ? parseInt(r["Runtime"]) : undefined),
+        runtime: r["Runtime"] ?? "",
         ageRating: r["Age rating"] ?? "",
         originalLanguage: r["Original language"] ?? "",
         imdbLink: r["imdb_link"] ?? "",

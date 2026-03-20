@@ -28,7 +28,7 @@ export default function NewMoviePage() {
         <Textarea label="Synopsis" name="synopsis" />
         <Field label="Rating (0–10)" name="rating" type="number" />
         <Field label="Genres (comma-separated)" name="genres" />
-        <Field label="Runtime (seconds)" name="runtime" type="number" />
+        <Field label="Runtime (e.g. 1:45)" name="runtime" />
         <Field label="Age rating" name="ageRating" />
         <Field label="Original language" name="originalLanguage" />
         <Field label="IMDb link" name="imdbLink" type="url" />

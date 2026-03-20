@@ -43,7 +43,7 @@ export default async function EditMoviePage({
         <Textarea label="Synopsis" name="synopsis" defaultValue={movie["Synopsis"]} />
         <Field label="Rating (0–10)" name="rating" type="number" defaultValue={movie["Rating"]} />
         <Field label="Genres (comma-separated)" name="genres" defaultValue={movie["Genres"]} />
-        <Field label="Runtime (seconds)" name="runtime" type="number" defaultValue={movie["Runtime"]} />
+        <Field label="Runtime (e.g. 1:45)" name="runtime" defaultValue={movie["Runtime"]} />
         <Field label="Age rating" name="ageRating" defaultValue={movie["Age rating"]} />
         <Field label="Original language" name="originalLanguage" defaultValue={movie["Original language"]} />
         <Field label="IMDb link" name="imdbLink" type="url" defaultValue={movie["imdb_link"]} />
