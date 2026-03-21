@@ -29,7 +29,6 @@ export default async function AdminMoviesPage() {
               <th className="px-4 py-3 text-left">Original title</th>
               <th className="px-4 py-3 text-left">Language</th>
               <th className="px-4 py-3 text-center">Active</th>
-              <th className="px-4 py-3 text-center">Sort</th>
               <th className="px-4 py-3"></th>
             </tr>
           </thead>
@@ -50,9 +49,6 @@ export default async function AdminMoviesPage() {
                 </td>
                 <td className="px-4 py-3 text-center text-gray-900 dark:text-gray-100">
                   {movie["Is active"]?.toLowerCase() === "true" ? "Yes" : "No"}
-                </td>
-                <td className="px-4 py-3 text-center text-gray-600 dark:text-gray-400">
-                  {movie["Sort order"]}
                 </td>
                 <td className="px-4 py-3">
                   <div className="flex items-center justify-end gap-2">
