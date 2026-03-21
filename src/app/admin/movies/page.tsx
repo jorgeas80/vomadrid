@@ -5,7 +5,9 @@ import { deleteMovie } from "../actions";
 export const dynamic = "force-dynamic";
 
 export default async function AdminMoviesPage() {
-  const movies = await readSheetAsObjects("movies");
+  const movies = (await readSheetAsObjects("movies")).sort((a, b) =>
+    (a["Title"] ?? "").localeCompare(b["Title"] ?? "")
+  );
 
   return (
     <div>
