@@ -33,7 +33,7 @@ export default function NewMoviePage() {
         <Field label="Original language" name="originalLanguage" />
         <Field label="IMDb link" name="imdbLink" type="url" />
         <Field label="Filmaffinity link" name="filmaffinityLink" type="url" />
-        <Field label="Sort order" name="sortOrder" type="number" defaultValue="999" />
+        <Field label="Sort order" name="sortOrder" type="number" />
 
         <div className="flex items-center gap-2">
           <input
