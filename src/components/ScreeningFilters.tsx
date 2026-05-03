@@ -4,25 +4,31 @@ interface ScreeningFiltersProps {
   date: string;
   cinemaId: string;
   chain: string;
+  city: string;
   cinemas: { id: string; name: string }[];
   chains: string[];
+  cities: string[];
   onDateChange: (value: string) => void;
   onCinemaChange: (value: string) => void;
   onChainChange: (value: string) => void;
+  onCityChange: (value: string) => void;
 }
 
 export function ScreeningFilters({
   date,
   cinemaId,
   chain,
+  city,
   cinemas,
   chains,
+  cities,
   onDateChange,
   onCinemaChange,
   onChainChange,
+  onCityChange,
 }: ScreeningFiltersProps) {
   return (
-    <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+    <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
       <div className="relative">
         <input
           type="date"
@@ -43,6 +49,18 @@ export function ScreeningFilters({
           </button>
         )}
       </div>
+      {cities.length > 1 && (
+        <select
+          value={city}
+          onChange={(e) => onCityChange(e.target.value)}
+          className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] px-3 py-2 text-sm outline-none focus:border-[var(--color-primary)]"
+        >
+          <option value="">All cities</option>
+          {cities.map((c) => (
+            <option key={c} value={c}>{c}</option>
+          ))}
+        </select>
+      )}
       <select
         value={cinemaId}
         onChange={(e) => onCinemaChange(e.target.value)}
