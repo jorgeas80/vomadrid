@@ -30,6 +30,7 @@ export default function MovieDetailPage({
   const [date, setDate] = useState("");
   const [cinemaId, setCinemaId] = useState("");
   const [chain, setChain] = useState("");
+  const [city, setCity] = useState("");
 
   useEffect(() => {
     Promise.all([
@@ -69,19 +70,29 @@ export default function MovieDetailPage({
     ].sort();
   }, [screenings]);
 
+  const cities = useMemo(() => {
+    return [
+      ...new Set(
+        screenings.map((s) => s.cinema?.city).filter(Boolean) as string[]
+      ),
+    ].sort();
+  }, [screenings]);
+
   // Client-side filtering for screenings
   const filtered = useMemo(() => {
     return screenings.filter((s) => {
       if (date && !s.date.startsWith(date)) return false;
+      if (city && s.cinema?.city !== city) return false;
       if (cinemaId && s.cinemaId !== cinemaId) return false;
       if (chain && s.cinema?.chain !== chain) return false;
       return true;
     });
-  }, [screenings, date, cinemaId, chain]);
+  }, [screenings, date, cinemaId, chain, city]);
 
   const handleDateChange = useCallback((v: string) => setDate(v), []);
   const handleCinemaChange = useCallback((v: string) => setCinemaId(v), []);
   const handleChainChange = useCallback((v: string) => setChain(v), []);
+  const handleCityChange = useCallback((v: string) => { setCity(v); setCinemaId(""); }, []);
 
   if (loading) {
     return (
@@ -241,11 +252,14 @@ export default function MovieDetailPage({
           date={date}
           cinemaId={cinemaId}
           chain={chain}
+          city={city}
           cinemas={cinemas}
           chains={chains}
+          cities={cities}
           onDateChange={handleDateChange}
           onCinemaChange={handleCinemaChange}
           onChainChange={handleChainChange}
+          onCityChange={handleCityChange}
         />
         <ScreeningsList screenings={filtered} />
       </div>
