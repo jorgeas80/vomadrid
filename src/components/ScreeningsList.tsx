@@ -77,6 +77,7 @@ export function ScreeningsList({
               const timeStr = new Date(screening.date).toLocaleTimeString("en-GB", {
                 hour: "2-digit",
                 minute: "2-digit",
+                timeZone: "Europe/Madrid",
               });
 
               return (
